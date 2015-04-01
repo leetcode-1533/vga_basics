@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP2C35F672) Path("C:/Users/y1275963/Desktop/LCM_VGA - DE2-35/") File("LCM_VGA.sof") MfrSpec(OpMask(1));
+		Device PartName(EP2C35F672) Path("C:/Users/y1275963/Desktop/vga_basics/") File("LCM_VGA.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
