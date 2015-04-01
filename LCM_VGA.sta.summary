@@ -1,0 +1,61 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'VGA_LCD_Driver:inst|I2S_LCD_Config:u4|I2S_Controller:u0|mI2S_CLK'
+Slack : -2.169
+TNS   : -55.173
+
+Type  : Slow Model Setup 'inst6|altpll_component|pll|clk[0]'
+Slack : 0.421
+TNS   : 0.000
+
+Type  : Slow Model Hold 'inst6|altpll_component|pll|clk[0]'
+Slack : -0.151
+TNS   : -0.151
+
+Type  : Slow Model Hold 'VGA_LCD_Driver:inst|I2S_LCD_Config:u4|I2S_Controller:u0|mI2S_CLK'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'VGA_LCD_Driver:inst|I2S_LCD_Config:u4|I2S_Controller:u0|mI2S_CLK'
+Slack : -0.500
+TNS   : -31.000
+
+Type  : Slow Model Minimum Pulse Width 'CLOCK_50'
+Slack : 10.000
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'inst6|altpll_component|pll|clk[0]'
+Slack : 17.873
+TNS   : 0.000
+
+Type  : Fast Model Setup 'VGA_LCD_Driver:inst|I2S_LCD_Config:u4|I2S_Controller:u0|mI2S_CLK'
+Slack : -0.525
+TNS   : -12.910
+
+Type  : Fast Model Setup 'inst6|altpll_component|pll|clk[0]'
+Slack : 0.355
+TNS   : 0.000
+
+Type  : Fast Model Hold 'inst6|altpll_component|pll|clk[0]'
+Slack : 0.025
+TNS   : 0.000
+
+Type  : Fast Model Hold 'VGA_LCD_Driver:inst|I2S_LCD_Config:u4|I2S_Controller:u0|mI2S_CLK'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'VGA_LCD_Driver:inst|I2S_LCD_Config:u4|I2S_Controller:u0|mI2S_CLK'
+Slack : -0.500
+TNS   : -31.000
+
+Type  : Fast Model Minimum Pulse Width 'CLOCK_50'
+Slack : 10.000
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'inst6|altpll_component|pll|clk[0]'
+Slack : 17.873
+TNS   : 0.000
+
+------------------------------------------------------------
