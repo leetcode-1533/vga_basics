@@ -887,7 +887,7 @@ set_global_assignment -name MIF_FILE display.mif
 set_global_assignment -name VERILOG_FILE I2S_Controller.v
 set_global_assignment -name BDF_FILE LCM_VGA.bdf
 set_global_assignment -name VECTOR_WAVEFORM_FILE LCM_VGA.vwf
-set_global_assignment -name VERILOG_FILE ETCH_A_SKETCH.v
 set_global_assignment -name SDC_FILE LCM_VGA.sdc
 set_global_assignment -name SOURCE_FILE db/LCM_VGA.cmp.rdb
+set_global_assignment -name QIP_FILE ram_background.qip
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
