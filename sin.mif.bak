@@ -1,6 +1,6 @@
 -- 160x1 1bit sine values
 
-WIDTH = 7;
+WIDTH = 1;
 DEPTH =  160;
 
 ADDRESS_RADIX = UNS;

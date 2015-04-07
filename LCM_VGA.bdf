@@ -701,6 +701,42 @@ applicable agreement for further details.
 	)
 	(annotation_block (parameter)(rect 648 -256 840 112))
 )
+(symbol
+	(rect -128 160 40 272)
+	(text "vga_sin" (rect 5 0 43 12)(font "Arial" ))
+	(text "inst1" (rect 8 96 31 108)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk" (rect 0 0 14 12)(font "Arial" ))
+		(text "clk" (rect 21 27 35 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 168 32)
+		(output)
+		(text "CounterX[7..0]" (rect 0 0 70 12)(font "Arial" ))
+		(text "CounterX[7..0]" (rect 88 27 158 39)(font "Arial" ))
+		(line (pt 168 32)(pt 152 32)(line_width 3))
+	)
+	(port
+		(pt 168 48)
+		(output)
+		(text "CounterY[7..0]" (rect 0 0 73 12)(font "Arial" ))
+		(text "CounterY[7..0]" (rect 86 43 159 55)(font "Arial" ))
+		(line (pt 168 48)(pt 152 48)(line_width 3))
+	)
+	(port
+		(pt 168 64)
+		(output)
+		(text "color[11..0]" (rect 0 0 55 12)(font "Arial" ))
+		(text "color[11..0]" (rect 101 59 156 71)(font "Arial" ))
+		(line (pt 168 64)(pt 152 64)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 152 96))
+	)
+)
 (connector
 	(pt 568 144)
 	(pt 584 144)
@@ -818,6 +854,53 @@ applicable agreement for further details.
 	(pt 240 -8)
 )
 (connector
+	(pt 40 224)
+	(pt 376 224)
+	(bus)
+)
+(connector
+	(pt 40 208)
+	(pt 136 208)
+	(bus)
+)
+(connector
+	(pt 376 192)
+	(pt 136 192)
+	(bus)
+)
+(connector
+	(pt 136 192)
+	(pt 136 208)
+	(bus)
+)
+(connector
+	(pt 48 192)
+	(pt 48 176)
+	(bus)
+)
+(connector
+	(pt 40 192)
+	(pt 48 192)
+	(bus)
+)
+(connector
+	(pt 48 176)
+	(pt 376 176)
+	(bus)
+)
+(connector
+	(pt -128 192)
+	(pt -168 192)
+)
+(connector
+	(pt -168 144)
+	(pt -168 192)
+)
+(connector
+	(pt -168 144)
+	(pt 240 144)
+)
+(connector
 	(text "CLK25" (rect 330 128 363 140)(font "Arial" ))
 	(pt 240 144)
 	(pt 376 144)
@@ -827,3 +910,4 @@ applicable agreement for further details.
 (junction (pt -24 -8))
 (junction (pt 352 160))
 (junction (pt 344 208))
+(junction (pt 240 144))
