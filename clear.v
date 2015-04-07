@@ -11,7 +11,7 @@ wire rambuffer;
 
 wire CounterXmaxed = (CounterX==8'b10011111); // 159
 wire CounterYmaxed = (CounterY==8'b01110111); // 119
-wire CounterAddress = (address==16'h4B00); // 120*160
+wire CounterAddress = (address==16'h4AFF); // 120*160
 
 ram_background ram_entity(
 	.address(address),
