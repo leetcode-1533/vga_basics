@@ -1,4 +1,4 @@
-module display_state(CounterX,CounterY,color,clk,k);
+module display_state(CounterX,CounterY,color,clk);
 
 parameter n = 25000;
 input clk;
@@ -12,7 +12,7 @@ wire [11:0] color1, color2;
 
 //reg clear_state,sin_state;
 
-input k;
+integer k=0;
 reg [1:0] state;
 
 clear clear_entity(
@@ -28,12 +28,16 @@ vga_sin sin_entity(
 	.color(color2),
 	.clk(clk),
 	.lock(1));
+
 always @ (posedge clk)
 begin
-		if (k == 0)
-			state <= 2'b00;
-		else
-			state <= 2'b01;
+	k = k + 1;
+	if(k >= 100000)
+		k = 0;
+	if(k <= 5000)
+		state <= 2'b01;
+	else
+		state <= 2'b00;
 end
 
 always @ (state)
