@@ -31,6 +31,13 @@ applicable agreement for further details.
 		(line (pt 0 32)(pt 16 32)(line_width 1))
 	)
 	(port
+		(pt 0 48)
+		(input)
+		(text "k" (rect 0 0 4 12)(font "Arial" ))
+		(text "k" (rect 21 43 25 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
 		(pt 168 32)
 		(output)
 		(text "CounterX[7..0]" (rect 0 0 57 12)(font "Arial" ))
@@ -53,7 +60,7 @@ applicable agreement for further details.
 	)
 	(parameter
 		"n"
-		"25000000"
+		"25000"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing

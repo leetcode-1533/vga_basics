@@ -35,7 +35,6 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -256 0 -200 16))
 )
 (pin
 	(input)
@@ -52,11 +51,10 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 120 168 176 184))
 )
 (pin
 	(input)
-	(rect 160 200 336 216)
+	(rect 152 200 328 216)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
 	(text "SW[15]" (rect 9 0 45 12)(font "Arial" ))
 	(pt 176 8)
@@ -69,7 +67,22 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 104 216 160 232))
+)
+(pin
+	(input)
+	(rect -440 200 -272 216)
+	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
+	(text "SW1[16]" (rect 5 0 48 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
 )
 (pin
 	(output)
@@ -86,7 +99,6 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 504 16 560 32))
 )
 (pin
 	(output)
@@ -103,7 +115,6 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 760 152 816 168))
 )
 (pin
 	(output)
@@ -120,7 +131,6 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 760 168 816 184))
 )
 (pin
 	(output)
@@ -137,7 +147,6 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 760 184 816 200))
 )
 (pin
 	(output)
@@ -154,7 +163,6 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 760 200 816 216))
 )
 (pin
 	(output)
@@ -171,7 +179,6 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 760 216 816 232))
 )
 (pin
 	(output)
@@ -188,7 +195,6 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 760 232 816 248))
 )
 (pin
 	(output)
@@ -205,7 +211,6 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 760 248 816 264))
 )
 (pin
 	(bidir)
@@ -223,7 +228,6 @@ applicable agreement for further details.
 		(line (pt 52 8)(pt 56 12))
 	)
 	(text "VCC" (rect 4 7 24 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 1272 560 1328 576))
 )
 (pin
 	(bidir)
@@ -241,7 +245,6 @@ applicable agreement for further details.
 		(line (pt 52 8)(pt 56 12))
 	)
 	(text "VCC" (rect 4 7 24 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 1264 616 1320 632))
 )
 (pin
 	(bidir)
@@ -259,7 +262,6 @@ applicable agreement for further details.
 		(line (pt 52 8)(pt 56 12))
 	)
 	(text "VCC" (rect 4 7 24 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 1272 664 1336 680))
 )
 (pin
 	(bidir)
@@ -278,7 +280,6 @@ applicable agreement for further details.
 	)
 	(flipy)
 	(text "VCC" (rect 152 7 172 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 872 552 928 568))
 )
 (pin
 	(bidir)
@@ -297,7 +298,6 @@ applicable agreement for further details.
 	)
 	(flipy)
 	(text "VCC" (rect 152 7 172 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 880 600 936 616))
 )
 (pin
 	(bidir)
@@ -316,7 +316,6 @@ applicable agreement for further details.
 	)
 	(flipy)
 	(text "VCC" (rect 152 7 172 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 888 648 952 664))
 )
 (pin
 	(bidir)
@@ -334,7 +333,6 @@ applicable agreement for further details.
 		(line (pt 52 8)(pt 56 12))
 	)
 	(text "VCC" (rect 4 7 24 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 1272 512 1328 528))
 )
 (pin
 	(bidir)
@@ -353,7 +351,6 @@ applicable agreement for further details.
 	)
 	(flipy)
 	(text "VCC" (rect 152 7 172 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 888 512 944 528))
 )
 (symbol
 	(rect -16 -72 224 112)
@@ -770,24 +767,31 @@ applicable agreement for further details.
 		(line (pt 0 32)(pt 16 32))
 	)
 	(port
+		(pt 0 48)
+		(input)
+		(text "k" (rect 0 0 5 12)(font "Arial" ))
+		(text "k" (rect 21 43 26 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
 		(pt 168 32)
 		(output)
 		(text "CounterX[7..0]" (rect 0 0 70 12)(font "Arial" ))
-		(text "CounterX[7..0]" (rect 88 27 158 39)(font "Arial" ))
+		(text "CounterX[7..0]" (rect 88 27 147 39)(font "Arial" ))
 		(line (pt 168 32)(pt 152 32)(line_width 3))
 	)
 	(port
 		(pt 168 48)
 		(output)
 		(text "CounterY[7..0]" (rect 0 0 73 12)(font "Arial" ))
-		(text "CounterY[7..0]" (rect 86 43 159 55)(font "Arial" ))
+		(text "CounterY[7..0]" (rect 86 43 147 55)(font "Arial" ))
 		(line (pt 168 48)(pt 152 48)(line_width 3))
 	)
 	(port
 		(pt 168 64)
 		(output)
 		(text "color[11..0]" (rect 0 0 55 12)(font "Arial" ))
-		(text "color[11..0]" (rect 101 59 156 71)(font "Arial" ))
+		(text "color[11..0]" (rect 101 59 147 71)(font "Arial" ))
 		(line (pt 168 64)(pt 152 64)(line_width 3))
 	)
 	(parameter
@@ -947,22 +951,6 @@ applicable agreement for further details.
 	(pt 376 144)
 )
 (connector
-	(pt -32 -8)
-	(pt -24 -8)
-)
-(connector
-	(pt -24 -8)
-	(pt -16 -8)
-)
-(connector
-	(pt 344 160)
-	(pt 352 160)
-)
-(connector
-	(pt 352 160)
-	(pt 376 160)
-)
-(connector
 	(pt -16 176)
 	(pt -16 192)
 	(bus)
@@ -1011,20 +999,40 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 328 208)
-	(pt 336 208)
+	(pt -32 -8)
+	(pt -24 -8)
 )
 (connector
-	(pt 336 208)
+	(pt -24 -8)
+	(pt -16 -8)
+)
+(connector
+	(pt 344 160)
+	(pt 352 160)
+)
+(connector
+	(pt 352 160)
+	(pt 376 160)
+)
+(connector
+	(pt 320 208)
+	(pt 328 208)
+)
+(connector
+	(pt 328 208)
 	(pt 376 208)
 )
 (connector
 	(pt 376 208)
 	(pt 384 208)
 )
+(connector
+	(pt -272 208)
+	(pt -192 208)
+)
 (junction (pt 376 208))
 (junction (pt -24 -8))
 (junction (pt 352 160))
 (junction (pt 240 144))
 (junction (pt -24 208))
-(junction (pt 336 208))
+(junction (pt 328 208))

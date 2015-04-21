@@ -1,4 +1,4 @@
-module display_state(CounterX,CounterY,color,clk);
+module display_state(CounterX,CounterY,color,clk,k);
 
 parameter n = 25000;
 input clk;
@@ -12,7 +12,7 @@ wire [11:0] color1, color2;
 
 //reg clear_state,sin_state;
 
-integer k;
+input k;
 
 clear clear_entity(
 	.CounterX(CounterX1),
@@ -29,9 +29,8 @@ vga_sin sin_entity(
 	.lock(1));
 
 always @ (posedge clk)
-for (k = 0; k < n ; k = k+1)
 begin
-	if (k <= 20000)
+	if (k == 0)
 	begin
 		CounterX = CounterX2;
 		CounterY = CounterY2;
