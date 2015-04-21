@@ -5,13 +5,14 @@ input clk,lock;
 output reg [7:0] CounterX,CounterY;
 output [11:0] color = {12{rambuffer}};
 
-reg [14:0] address;
+wire [14:0] address;
 
 wire rambuffer;
 
 wire CounterXmaxed = (CounterX==8'b10011111); // 159
 wire CounterYmaxed = (CounterY==8'b01110111); // 119
-wire CounterAddress = (address==16'h4AFF); // 120*160
+
+assign address = CounterX + CounterY * 160;
 
 ram_background ram_entity(
 	.address(address),
@@ -32,19 +33,12 @@ ram_background ram_entity(
 //	input	  wren;
 //	output	[0:0]  q;
 
-always @(posedge clk) // ram iterator
-if (CounterAddress)
-	address <= 0;
-else
-begin
-	address <= address + lock;
-end
 
 always @(posedge clk)
+begin
 if(CounterXmaxed)
   CounterX <= 0;
 else
-begin
   CounterX <= CounterX + lock;
 end
 
@@ -54,7 +48,7 @@ begin
 	if(CounterYmaxed)
 		CounterY <= 0;
 	else
-		 CounterY <= CounterY + lock;
+	CounterY <= CounterY + lock;
 end
 
 endmodule
