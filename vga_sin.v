@@ -1,6 +1,7 @@
-module vga_sin(CounterX,CounterY,color,clk);
+module vga_sin(CounterX,CounterY,color,clk,lock);
 
 input clk;
+input lock;
 
 output reg [7:0] CounterX;
 output [11:0] color = 12'hFFF;
@@ -22,10 +23,10 @@ sin_test sin_entity(
 always @ (posedge clk)
 begin
 if(CounterXmaxed)
-  CounterX <= 0;
+  CounterX <= lock;
 else
 begin
-  CounterX <= CounterX + 1;
+  CounterX <= CounterX + lock;
 end
 end
 
