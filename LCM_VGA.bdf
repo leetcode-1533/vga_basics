@@ -758,49 +758,6 @@ applicable agreement for further details.
 		(rectangle (rect 16 16 224 96))
 	)
 )
-(symbol
-	(rect -184 144 -8 256)
-	(text "clear" (rect 5 0 28 12)(font "Arial" ))
-	(text "inst1" (rect 8 96 31 108)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "clk" (rect 0 0 14 12)(font "Arial" ))
-		(text "clk" (rect 21 27 35 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "lock" (rect 0 0 20 12)(font "Arial" ))
-		(text "lock" (rect 21 43 41 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 176 32)
-		(output)
-		(text "CounterX[7..0]" (rect 0 0 70 12)(font "Arial" ))
-		(text "CounterX[7..0]" (rect 96 27 155 39)(font "Arial" ))
-		(line (pt 176 32)(pt 160 32)(line_width 3))
-	)
-	(port
-		(pt 176 48)
-		(output)
-		(text "CounterY[7..0]" (rect 0 0 73 12)(font "Arial" ))
-		(text "CounterY[7..0]" (rect 94 43 155 55)(font "Arial" ))
-		(line (pt 176 48)(pt 160 48)(line_width 3))
-	)
-	(port
-		(pt 176 64)
-		(output)
-		(text "color[11..0]" (rect 0 0 55 12)(font "Arial" ))
-		(text "color[11..0]" (rect 109 59 155 71)(font "Arial" ))
-		(line (pt 176 64)(pt 160 64)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 160 96))
-	)
-)
 (connector
 	(pt 568 144)
 	(pt 584 144)
@@ -939,20 +896,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "CLK25" (rect 330 128 363 140)(font "Arial" ))
-	(pt 240 144)
-	(pt 376 144)
-)
-(connector
-	(pt -208 144)
-	(pt 240 144)
-)
-(connector
-	(pt 376 224)
-	(pt 16 224)
-	(bus)
-)
-(connector
 	(pt -32 -8)
 	(pt -24 -8)
 )
@@ -969,48 +912,6 @@ applicable agreement for further details.
 	(pt 376 160)
 )
 (connector
-	(pt -208 144)
-	(pt -208 176)
-)
-(connector
-	(pt 16 224)
-	(pt 16 208)
-	(bus)
-)
-(connector
-	(pt 16 208)
-	(pt -8 208)
-	(bus)
-)
-(connector
-	(pt -208 176)
-	(pt -184 176)
-)
-(connector
-	(pt -16 176)
-	(pt -8 176)
-	(bus)
-)
-(connector
-	(pt -8 176)
-	(pt 376 176)
-	(bus)
-)
-(connector
-	(pt -16 192)
-	(pt -8 192)
-	(bus)
-)
-(connector
-	(pt -8 192)
-	(pt 376 192)
-	(bus)
-)
-(connector
-	(pt 336 208)
-	(pt 336 296)
-)
-(connector
 	(pt 336 208)
 	(pt 344 208)
 )
@@ -1023,21 +924,16 @@ applicable agreement for further details.
 	(pt 384 208)
 )
 (connector
-	(pt -192 192)
-	(pt -184 192)
+	(pt 232 144)
+	(pt 240 144)
 )
 (connector
-	(pt 336 296)
-	(pt -192 296)
-)
-(connector
-	(pt -192 192)
-	(pt -192 296)
+	(text "CLK25" (rect 330 128 363 140)(font "Arial" ))
+	(pt 240 144)
+	(pt 376 144)
 )
 (junction (pt 376 208))
 (junction (pt -24 -8))
 (junction (pt 352 160))
 (junction (pt 344 208))
 (junction (pt 240 144))
-(junction (pt -8 176))
-(junction (pt -8 192))
