@@ -14,29 +14,30 @@ wire [11:0] color1, color2;
 
 integer k=0;
 reg [1:0] state;
+reg clear_lock,sin_lock;
 
 clear clear_entity(
 	.CounterX(CounterX1),
 	.CounterY(CounterY1),
 	.color(color1),
 	.clk(clk),
-	.lock(1));
+	.lock(clear_lock));
 	
 vga_sin sin_entity(
 	.CounterX(CounterX2),
 	.CounterY(CounterY2),
 	.color(color2),
 	.clk(clk),
-	.lock(1));
+	.lock(sin_lock));
 
 always @ (posedge clk)
 begin
 	k = k + 1;
-	if(k >= 10000000)
+	if(k >= 25000000) //one second 
 		k = 0;
-	if(k <= 19200)//draw background
+	if(k <= 19199)//draw background
 		state <= 2'b00;
-	else
+	else if(k <= 19359)
 		state <= 2'b01;
 end
 
@@ -44,12 +45,16 @@ always @ (state)
 	case(state)
 		00:
 		begin
+			clear_lock <= 1;
+			sin_lock <= 0;
 			CounterX = CounterX1;
 			CounterY = CounterY1;
 			color = color1;
 		end
 		01:
 		begin
+			clear_lock <= 0;
+			sin_lock <= 1;		
 			CounterX = CounterX2;
 			CounterY = CounterY2;
 			color = color2;		
