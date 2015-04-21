@@ -24,3 +24,5 @@ simulation/
 #!*.sof
 !*.qpf
 !*.qsf
+
+*.mif
