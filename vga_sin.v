@@ -22,12 +22,13 @@ sin_test sin_entity(
 	
 always @ (posedge clk)
 begin
+if(lock == 0)
+	CounterX <= 0;
+	
 if(CounterXmaxed)
-  CounterX <= lock;
+  CounterX <= 0;
 else
-begin
   CounterX <= CounterX + lock;
-end
 end
 
 endmodule

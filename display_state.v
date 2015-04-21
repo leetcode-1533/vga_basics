@@ -13,6 +13,7 @@ wire [11:0] color1, color2;
 //reg clear_state,sin_state;
 
 input k;
+reg [1:0] state;
 
 clear clear_entity(
 	.CounterX(CounterX1),
@@ -27,22 +28,29 @@ vga_sin sin_entity(
 	.color(color2),
 	.clk(clk),
 	.lock(1));
-
 always @ (posedge clk)
 begin
-	if (k == 0)
-	begin
-		CounterX = CounterX2;
-		CounterY = CounterY2;
-		color = color2;
-	end
-	else
-	begin
-		CounterX = CounterX1;
-		CounterY = CounterY1;
-		color = color1;
-	end		
+		if (k == 0)
+			state <= 2'b00;
+		else
+			state <= 2'b01;
 end
+
+always @ (state)
+	case(state)
+		00:
+		begin
+			CounterX = CounterX2;
+			CounterY = CounterY2;
+			color = color2;
+		end
+		01:
+		begin
+			CounterX = CounterX1;
+			CounterY = CounterY1;
+			color = color1;		
+		end	
+	endcase
 
 //always @ (clk)
 //for(k=0;k < n; k = k+1)
