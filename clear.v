@@ -37,7 +37,7 @@ ram_background ram_entity(
 always @(posedge clk)
 begin
 if(CounterXmaxed)
-  CounterX <= lock;
+  CounterX <= 0;
 else
   CounterX <= CounterX + lock;
 end
@@ -46,7 +46,7 @@ always @(posedge clk )
 if(CounterXmaxed)
 begin
 	if(CounterYmaxed)
-		CounterY <= lock;
+		CounterY <= 0;
 	else
 	CounterY <= CounterY + lock;
 end
