@@ -32,27 +32,27 @@ vga_sin sin_entity(
 always @ (posedge clk)
 begin
 	k = k + 1;
-	if(k >= 100000)
+	if(k >= 10000000)
 		k = 0;
-	if(k <= 5000)
-		state <= 2'b01;
-	else
+	if(k <= 19200)//draw background
 		state <= 2'b00;
+	else
+		state <= 2'b01;
 end
 
 always @ (state)
 	case(state)
 		00:
 		begin
-			CounterX = CounterX2;
-			CounterY = CounterY2;
-			color = color2;
+			CounterX = CounterX1;
+			CounterY = CounterY1;
+			color = color1;
 		end
 		01:
 		begin
-			CounterX = CounterX1;
-			CounterY = CounterY1;
-			color = color1;		
+			CounterX = CounterX2;
+			CounterY = CounterY2;
+			color = color2;		
 		end	
 	endcase
 
