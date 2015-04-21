@@ -56,7 +56,7 @@ applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect 168 200 344 216)
+	(rect 160 200 336 216)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
 	(text "SW[15]" (rect 9 0 45 12)(font "Arial" ))
 	(pt 176 8)
@@ -69,7 +69,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 112 216 168 232))
+	(annotation_block (location)(rect 104 216 160 232))
 )
 (pin
 	(output)
@@ -758,6 +758,48 @@ applicable agreement for further details.
 		(rectangle (rect 16 16 224 96))
 	)
 )
+(symbol
+	(rect -192 160 -24 272)
+	(text "display_state" (rect 5 0 71 12)(font "Arial" ))
+	(text "inst4" (rect 8 96 31 108)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk" (rect 0 0 14 12)(font "Arial" ))
+		(text "clk" (rect 21 27 35 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 168 32)
+		(output)
+		(text "CounterX[7..0]" (rect 0 0 70 12)(font "Arial" ))
+		(text "CounterX[7..0]" (rect 88 27 158 39)(font "Arial" ))
+		(line (pt 168 32)(pt 152 32)(line_width 3))
+	)
+	(port
+		(pt 168 48)
+		(output)
+		(text "CounterY[7..0]" (rect 0 0 73 12)(font "Arial" ))
+		(text "CounterY[7..0]" (rect 86 43 159 55)(font "Arial" ))
+		(line (pt 168 48)(pt 152 48)(line_width 3))
+	)
+	(port
+		(pt 168 64)
+		(output)
+		(text "color[11..0]" (rect 0 0 55 12)(font "Arial" ))
+		(text "color[11..0]" (rect 101 59 156 71)(font "Arial" ))
+		(line (pt 168 64)(pt 152 64)(line_width 3))
+	)
+	(parameter
+		"n"
+		"25000"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 152 96))
+	)
+	(annotation_block (parameter)(rect -24 128 158 156))
+)
 (connector
 	(pt 568 144)
 	(pt 584 144)
@@ -896,6 +938,15 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
+	(pt -200 144)
+	(pt 240 144)
+)
+(connector
+	(text "CLK25" (rect 330 128 363 140)(font "Arial" ))
+	(pt 240 144)
+	(pt 376 144)
+)
+(connector
 	(pt -32 -8)
 	(pt -24 -8)
 )
@@ -912,23 +963,68 @@ applicable agreement for further details.
 	(pt 376 160)
 )
 (connector
+	(pt -16 176)
+	(pt -16 192)
+	(bus)
+)
+(connector
+	(pt 376 176)
+	(pt -16 176)
+	(bus)
+)
+(connector
+	(pt -16 192)
+	(pt -24 192)
+	(bus)
+)
+(connector
+	(pt -200 192)
+	(pt -192 192)
+)
+(connector
+	(pt -200 144)
+	(pt -200 192)
+)
+(connector
+	(pt -8 192)
+	(pt -8 208)
+	(bus)
+)
+(connector
+	(pt 376 192)
+	(pt -8 192)
+	(bus)
+)
+(connector
+	(pt -24 224)
+	(pt 376 224)
+	(bus)
+)
+(connector
+	(pt -32 208)
+	(pt -24 208)
+	(bus)
+)
+(connector
+	(pt -24 208)
+	(pt -8 208)
+	(bus)
+)
+(connector
+	(pt 328 208)
 	(pt 336 208)
-	(pt 344 208)
+)
+(connector
+	(pt 336 208)
+	(pt 376 208)
 )
 (connector
 	(pt 376 208)
 	(pt 384 208)
 )
-(connector
-	(text "CLK25" (rect 330 128 363 140)(font "Arial" ))
-	(pt 240 144)
-	(pt 376 144)
-)
-(connector
-	(pt 344 208)
-	(pt 376 208)
-)
 (junction (pt 376 208))
 (junction (pt -24 -8))
 (junction (pt 352 160))
-(junction (pt 344 208))
+(junction (pt 240 144))
+(junction (pt -24 208))
+(junction (pt 336 208))

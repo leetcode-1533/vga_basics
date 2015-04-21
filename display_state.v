@@ -1,49 +1,59 @@
 module display_state(CounterX,CounterY,color,clk);
 
-parameter n = 25000000;
+parameter n = 25000;
 input clk;
 
+//output reg [7:0] CounterX,CounterY;
+//output reg [11:0] color;
 output [7:0] CounterX,CounterY;
 output [11:0] color;
 
+//wire [7:0] CounterX1,CounterY1,CounterX2,CounterY2;
+//wire [11:0] color1, color2;
 
-reg clear_state,sin_state;
 
-integer k;
+//reg clear_state,sin_state;
 
-clear_entity clear(
+//integer k;
+
+clear clear_entity(
 	.CounterX(CounterX),
 	.CounterY(CounterY),
 	.color(color),
 	.clk(clk),
-	.lock(clear_state));
+	.lock(1));
 	
-sin_entity vga_sin(
-	.CounterX(CounterX),
-	.CounterY(CounterY),
-	.color(color),
-	.clk(clk),
-	.lock(sin_state));
-	
-always @ (clk)
-for(k=0;k < n; k = k+1)
-begin
-if (k <= 19199)
-// clear first 
-begin
-	clear_state <= 1;
-	sin_state <= 0;	
-end
-
-// draw sin_wave
-else if( k < 19359)
-begin
-	clear_state <= 0;
-	sin_state <= 1;
-
-end
-
-// do nothing,
-end
+//vga_sin sin_entity(
+//	.CounterX(CounterX2),
+//	.CounterY(CounterY2),
+//	.color(color2),
+//	.clk(clk),
+//	.lock(sin_state));
+//	
+//always @ (clk)
+//for(k=0;k < n; k = k+1)
+//begin
+//if (k <= 19199)
+//// clear first 
+//begin
+//	clear_state = 1;
+//	sin_state = 0;
+//	CounterX = CounterX1;
+//	CounterY = CounterY1;
+//	color = color1;
+//end
+//
+//// draw sin_wave
+//else if( k < 19359)
+//begin
+//	clear_state = 0;
+//	sin_state = 1;
+//	CounterX = CounterX1;
+//	CounterY = CounterY1;
+//	color = color1;
+//end
+//
+//// do nothing,
+//end
 
 endmodule
