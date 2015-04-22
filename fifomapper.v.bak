@@ -1,0 +1,3 @@
+module fifomapper(CounterX,CounterY,color,clk,read_clk,write_clk);
+
+

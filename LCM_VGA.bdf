@@ -72,23 +72,6 @@ applicable agreement for further details.
 	(annotation_block (location)(rect 96 216 152 232))
 )
 (pin
-	(input)
-	(rect -440 200 -264 216)
-	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
-	(text "SW[16]" (rect 9 0 45 12)(font "Arial" ))
-	(pt 176 8)
-	(drawing
-		(line (pt 92 12)(pt 117 12))
-		(line (pt 92 4)(pt 117 4))
-		(line (pt 121 8)(pt 176 8))
-		(line (pt 92 12)(pt 92 4))
-		(line (pt 117 4)(pt 121 8))
-		(line (pt 117 12)(pt 121 8))
-	)
-	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -496 216 -440 232))
-)
-(pin
 	(output)
 	(rect 328 0 504 16)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
@@ -776,7 +759,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -192 160 -24 272)
+	(rect -216 144 -16 256)
 	(text "display_state" (rect 5 0 71 12)(font "Arial" ))
 	(text "inst4" (rect 8 96 31 108)(font "Arial" ))
 	(port
@@ -787,25 +770,32 @@ applicable agreement for further details.
 		(line (pt 0 32)(pt 16 32))
 	)
 	(port
-		(pt 168 32)
+		(pt 0 48)
+		(input)
+		(text "adc[13..0]" (rect 0 0 49 12)(font "Arial" ))
+		(text "adc[13..0]" (rect 21 43 70 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 200 32)
 		(output)
 		(text "CounterX[7..0]" (rect 0 0 70 12)(font "Arial" ))
-		(text "CounterX[7..0]" (rect 88 27 147 39)(font "Arial" ))
-		(line (pt 168 32)(pt 152 32)(line_width 3))
+		(text "CounterX[7..0]" (rect 120 27 179 39)(font "Arial" ))
+		(line (pt 200 32)(pt 184 32)(line_width 3))
 	)
 	(port
-		(pt 168 48)
+		(pt 200 48)
 		(output)
 		(text "CounterY[7..0]" (rect 0 0 73 12)(font "Arial" ))
-		(text "CounterY[7..0]" (rect 86 43 147 55)(font "Arial" ))
-		(line (pt 168 48)(pt 152 48)(line_width 3))
+		(text "CounterY[7..0]" (rect 118 43 179 55)(font "Arial" ))
+		(line (pt 200 48)(pt 184 48)(line_width 3))
 	)
 	(port
-		(pt 168 64)
+		(pt 200 64)
 		(output)
 		(text "color[11..0]" (rect 0 0 55 12)(font "Arial" ))
-		(text "color[11..0]" (rect 101 59 147 71)(font "Arial" ))
-		(line (pt 168 64)(pt 152 64)(line_width 3))
+		(text "color[11..0]" (rect 133 59 179 71)(font "Arial" ))
+		(line (pt 200 64)(pt 184 64)(line_width 3))
 	)
 	(parameter
 		"n"
@@ -813,9 +803,9 @@ applicable agreement for further details.
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 16 16 152 96))
+		(rectangle (rect 16 16 184 96))
 	)
-	(annotation_block (parameter)(rect -24 128 158 156))
+	(annotation_block (parameter)(rect -48 112 134 140))
 )
 (connector
 	(pt 568 144)
@@ -869,36 +859,6 @@ applicable agreement for further details.
 	(text "clk_62" (rect 698 400 729 412)(font "Arial" ))
 	(pt 720 416)
 	(pt 688 416)
-)
-(connector
-	(text "clk_62" (rect 698 416 729 428)(font "Arial" ))
-	(pt 720 432)
-	(pt 688 432)
-)
-(connector
-	(pt 960 432)
-	(pt 1016 432)
-	(bus)
-)
-(connector
-	(pt 1016 432)
-	(pt 1016 336)
-	(bus)
-)
-(connector
-	(pt 720 400)
-	(pt 680 400)
-	(bus)
-)
-(connector
-	(pt 680 400)
-	(pt 680 336)
-	(bus)
-)
-(connector
-	(pt 680 336)
-	(pt 1016 336)
-	(bus)
 )
 (connector
 	(text "GPIO_0_TEMP[1]" (rect 1026 488 1112 500)(font "Arial" ))
@@ -955,7 +915,27 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt -200 144)
+	(pt 24 224)
+	(pt 376 224)
+	(bus)
+)
+(connector
+	(pt -16 208)
+	(pt 24 208)
+	(bus)
+)
+(connector
+	(pt 24 208)
+	(pt 24 224)
+	(bus)
+)
+(connector
+	(pt -16 192)
+	(pt 376 192)
+	(bus)
+)
+(connector
+	(pt -232 144)
 	(pt 240 144)
 )
 (connector
@@ -964,50 +944,26 @@ applicable agreement for further details.
 	(pt 376 144)
 )
 (connector
+	(pt -232 176)
+	(pt -232 144)
+)
+(connector
+	(pt -232 176)
+	(pt -216 176)
+)
+(connector
+	(pt -216 176)
+	(pt -208 176)
+)
+(connector
+	(pt -24 176)
 	(pt -16 176)
-	(pt -16 192)
 	(bus)
 )
 (connector
+	(pt -16 176)
 	(pt 376 176)
-	(pt -16 176)
 	(bus)
-)
-(connector
-	(pt -16 192)
-	(pt -24 192)
-	(bus)
-)
-(connector
-	(pt -200 192)
-	(pt -192 192)
-)
-(connector
-	(pt -200 144)
-	(pt -200 192)
-)
-(connector
-	(pt -8 192)
-	(pt -8 208)
-	(bus)
-)
-(connector
-	(pt 376 192)
-	(pt -8 192)
-	(bus)
-)
-(connector
-	(pt -24 224)
-	(pt 376 224)
-	(bus)
-)
-(connector
-	(pt -272 208)
-	(pt -264 208)
-)
-(connector
-	(pt -264 208)
-	(pt -192 208)
 )
 (connector
 	(pt -32 -8)
@@ -1038,19 +994,26 @@ applicable agreement for further details.
 	(pt 384 208)
 )
 (connector
-	(pt -32 208)
-	(pt -24 208)
+	(text "ADC[13..0]" (rect 970 416 1025 428)(font "Arial" ))
+	(pt 960 432)
+	(pt 1000 432)
 	(bus)
 )
 (connector
-	(pt -24 208)
-	(pt -8 208)
+	(text "ADC[13..0]" (rect -248 176 -193 188)(font "Arial" ))
+	(pt -216 192)
+	(pt -248 192)
 	(bus)
+)
+(connector
+	(text "CLK25" (rect 698 416 731 428)(font "Arial" ))
+	(pt 720 432)
+	(pt 688 432)
 )
 (junction (pt 376 208))
 (junction (pt -24 -8))
 (junction (pt 352 160))
 (junction (pt 240 144))
-(junction (pt -24 208))
 (junction (pt 328 208))
-(junction (pt -264 208))
+(junction (pt -16 176))
+(junction (pt -216 176))

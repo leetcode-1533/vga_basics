@@ -1,7 +1,8 @@
-module display_state(CounterX,CounterY,color,clk);
+module display_state(CounterX,CounterY,color,clk,adc);
 
 parameter n = 25000;
 input clk;
+input [13:0] adc;
 
 output reg [7:0] CounterX,CounterY;
 output reg [11:0] color;
@@ -28,12 +29,13 @@ vga_sin sin_entity(
 	.CounterY(CounterY2),
 	.color(color2),
 	.clk(clk),
-	.lock(sin_lock));
+	.lock(sin_lock),
+	.adc(adc));
 
 always @ (posedge clk)
 begin
 	k = k + 1;
-	if(k >= 25000000) //one second 
+	if(k >= 500000) //50HZ
 		k = 0;
 	if(k <= 19199)//draw background
 		state <= 2'b00;
