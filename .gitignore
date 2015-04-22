@@ -24,3 +24,6 @@ simulation/
 #!*.sof
 !*.qpf
 !*.qsf
+
+*.mif
+*.jdi

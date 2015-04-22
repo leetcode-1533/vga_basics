@@ -4,7 +4,7 @@ input clk;
 input lock;
 
 output reg [7:0] CounterX;
-output [11:0] color = 12'hFFF;
+output [11:0] color = 12'hF00;
 output [7:0] CounterY;
 
 reg [14:0] address;
