@@ -1,14 +1,16 @@
-module display_state(CounterX,CounterY,color,clk,adc);
+module display_state(CounterX,CounterY,color,clk,adc,man_in);
 
 parameter n = 25000;
 input clk;
 input [13:0] adc;
+input man_in;
 
 output reg [7:0] CounterX,CounterY;
 output reg [11:0] color;
 
 wire [7:0] CounterX1,CounterY1,CounterX2,CounterY2;
 wire [11:0] color1, color2;
+
 
 
 //reg clear_state,sin_state;
@@ -34,13 +36,20 @@ vga_sin sin_entity(
 
 always @ (posedge clk)
 begin
-	k = k + 1;
-	if(k >= 500000) //50HZ
-		k = 0;
-	if(k <= 19199)//draw background
-		state <= 2'b00;
-	else if(k <= 19359)
-		state <= 2'b01;
+	if(man_in == 0)
+	begin
+		k = k + 1;
+		if(k >= 500000) //50HZ
+			k = 0;
+		if(k <= 19199)//draw background
+			state <= 2'b00;
+		else if(k <= 19359)
+			state <= 2'b01;
+		else
+			state <= 2'b11;
+	end
+	else
+		state <= 2'bzz;
 end
 
 always @ (state)
@@ -60,7 +69,15 @@ always @ (state)
 			CounterX = CounterX2;
 			CounterY = CounterY2;
 			color = color2;		
-		end	
+		end
+		default:
+		begin
+			clear_lock <= 0;
+			sin_lock <= 0;
+			CounterX = 8'bzzzz_zzzz;
+			CounterY = 8'bzzzz_zzzz;
+			color <= 12'bzzzz_zzzz_zzzz;
+		end
 	endcase
 
 //always @ (clk)
