@@ -25,5 +25,4 @@ simulation/
 !*.qpf
 !*.qsf
 
-*.mif
 *.jdi

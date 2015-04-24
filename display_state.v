@@ -109,8 +109,6 @@ always @ * // combinational circuit
 				next_state = do_nothing;
 			else	
 				next_state = clear_screen;
-
-
 		end 
 	endcase
 
