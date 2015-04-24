@@ -1,7 +1,8 @@
-module display_state(CounterX,CounterY,color,clk,clk_en,rst_n);
+// module display_state(CounterX,CounterY,color,clk,clk_en,rst_n);
+module display_state(CounterX,CounterY,color,clk,clk_en,rst_n,adc_data,clk_adc);
 
 input clk;
-input clk_en,rst_n;
+input clk_en,rst_n;//clk_en is not implemented
 
 output reg [7:0] CounterX,CounterY;
 output reg [11:0] color;
@@ -22,7 +23,10 @@ clear clear_module(
 	.enable(enable_clear),
 	.reset(reset_clear),
 	.finished(finished_clear));
-	
+
+// module vga_sin(CounterX,CounterY,color,clk,enable,reset,finished,clk_adc,adc_data);
+input [13:0] adc_data;
+input clk_adc;
 vga_sin sin_module(
 	.CounterX(CounterX_sin),
 	.CounterY(CounterY_sin),
@@ -30,7 +34,10 @@ vga_sin sin_module(
 	.clk(clk),
 	.enable(enable_sin),
 	.reset(reset_sin),
-	.finished(finished_sin));
+	.finished(finished_sin),
+	.clk_adc(clk_adc),
+	.adc_data(adc_data));
+
 delay delay_module(
 	.clk(clk), 
 	.enable(enable_delay),

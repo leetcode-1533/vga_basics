@@ -1,6 +1,7 @@
 // module vga_sin(CounterX,color,clk,enable,reset,finished);
- module vga_sin(CounterX,CounterY,color,clk,enable,reset,finished);
-//module vga_sin(CounterX,adc,CounterY,color,clk,enable,reset,finished);
+// module vga_sin(CounterX,CounterY,color,clk,enable,reset,finished);
+module vga_sin(CounterX,CounterY,color,clk,enable,reset,finished,clk_adc,adc_data);
+
 
 input clk;
 input enable,reset;
@@ -29,16 +30,18 @@ end
 
 // endmodule
 
-// output CounterY;
-// input [7:0] adc;
-// assign CounterY = adc;
-
-
+// module collect_data(clk_adc,enable,reset,finished,data_in,data_out,read_busy);
+input clk_adc;
+input [13:0] adc_data;
 output [7:0] CounterY;
-sin_test sin_entity(
-	.address(CounterX),
-	.clock(clk),
-	.wren(1'b0),
-	.q(CounterY));
 
+// for the moment, the fifo will read the data when the drawer is off continously until full. The word length is not
+// correct as well, it 128 instead of 120.. Going to implmented the trigger after testing the adc
+
+collect_data fifo_entity(
+	.clk_adc(clk_adc),
+	.data_in(adc_data),
+	.data_out(CounterY), 
+	.read_busy(~enable)); //"when enabled it is busy to draw on the screen, usually, enable is the opposite of reset and finifhsed
+	
 endmodule

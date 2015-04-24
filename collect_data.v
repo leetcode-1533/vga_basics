@@ -1,7 +1,7 @@
-module collect_data(clk_adc,enable,reset,finished,data_in,data_out,read_busy);
+module collect_data(clk_adc,clk,enable,reset,finished,data_in,data_out,read_busy);
 
-input clk_adc,enable,reset;
-output finished;
+input clk_adc,enable,reset,clk; // enable, reset is not implmented
+output finished;//finished is not implemented
 
 input [13:0] data_in;
 wire rdreq; // 1 allow for reading
@@ -12,7 +12,9 @@ assign rdreq = allow_in; // will allow to be read when the reader is currently o
 
 output [7:0] data_out;
 
-fifo myfifo(.data(data_in[13:6]), 
+wire vga_data = (data_in >> 6); // 14 bits to 8 bits: 6 bits to go it rangs from 127 to 0 : going to implement to module here
+
+fifo myfifo(.data(vga_data), 
 	.wrreq(wrreq), // write enalbe
 	.wrclk(clk_adc),
 	.wrfull(wrfull), 
