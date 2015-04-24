@@ -1,35 +1,37 @@
-module vga_sin(CounterX,CounterY,color,clk,lock,adc);
+//module vga_sin(CounterX,color,clk,enable,reset,finished);
+module vga_sin(CounterX,CounterY,color,clk,enable,reset,finished);
+//module vga_sin(CounterX,adc,CounterY,color,clk,enable,reset,finished);
 
-
-
-wire rambuffer;
 input clk;
-input lock;
+input enable,reset;
 
-input [13:0] adc;
-
+output finished;
 output reg [7:0] CounterX;
-output [11:0] color = 12'hF00;
-output [7:0] CounterY;
-wire CounterXmaxed = (CounterX==8'b10011111); // 159
+output [11:0] color = 12'hF00; // color to be drawn
 
-//sin_test sin_entity(
-//	.address(CounterX),
-//	.clock(clk),
-//	.wren(1'b0),
-//	.q(CounterY));
-//	
-assign CounterY = adc[13:6];
+wire CounterXmaxed = (CounterX==8'd159); // 159
 
-always @ (posedge clk)
+always @(posedge clk)
 begin
-if(lock == 0)
-	CounterX <= 0;
-	
-if(CounterXmaxed)
-  CounterX <= 0;
-else
-  CounterX <= CounterX + lock;
+	if(reset == 1)
+		CounterX <= 0;
+
+	if(CounterXmaxed)
+	  CounterX <= 0;
+	else if(enable == 1)
+	  CounterX <= CounterX + 1;
 end
+
+// output CounterY;
+// input [7:0] adc;
+
+// assign CounterY = adc;
+
+output CounterY;
+ sin_test sin_entity(
+ 	.address(CounterX),
+ 	.clock(clk),
+ 	.wren(1'b0),
+ 	.q(CounterY));
 
 endmodule

@@ -23,8 +23,7 @@ clear clear_entity(
 	.CounterX(CounterX1),
 	.CounterY(CounterY1),
 	.color(color1),
-	.clk(clk),
-	.lock(clear_lock));
+	.clk(clk));
 	
 vga_sin sin_entity(
 	.CounterX(CounterX2),
