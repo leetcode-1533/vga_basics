@@ -12,7 +12,7 @@ assign rdreq = allow_in; // will allow to be read when the reader is currently o
 
 output [7:0] data_out;
 
-wire vga_data = (data_in >> 6); // 14 bits to 8 bits: 6 bits to go it rangs from 127 to 0 : going to implement to module here
+wire [7:0] vga_data = (data_in >> 6); // 14 bits to 8 bits: 6 bits to go it rangs from 127 to 0 : going to implement to module here
 
 fifo myfifo(.data(vga_data), 
 	.wrreq(wrreq), // write enalbe
