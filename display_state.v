@@ -43,7 +43,7 @@ delay delay_module(
 	.enable(enable_delay),
 	.reset(reset_delay), 
 	.finished(finished_delay));
-	defparam delay_module.cycle ='d1000833;
+//	defparam delay_module.cycle ='d10008;
 
 parameter [1:0] clear_screen = 2'b00, draw_line = 2'b01,do_nothing = 2'b10;
 reg [1:0] state,next_state;
