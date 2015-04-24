@@ -20,7 +20,7 @@ applicable agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 216 128)
+	(rect 16 16 200 128)
 	(text "display_state" (rect 5 0 56 12)(font "Arial" ))
 	(text "inst" (rect 8 96 20 108)(font "Arial" ))
 	(port
@@ -33,45 +33,50 @@ applicable agreement for further details.
 	(port
 		(pt 0 48)
 		(input)
-		(text "adc[13..0]" (rect 0 0 37 12)(font "Arial" ))
-		(text "adc[13..0]" (rect 21 43 58 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48)(line_width 3))
+		(text "clk_en" (rect 0 0 25 12)(font "Arial" ))
+		(text "clk_en" (rect 21 43 46 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
 	)
 	(port
 		(pt 0 64)
 		(input)
-		(text "man_in" (rect 0 0 29 12)(font "Arial" ))
-		(text "man_in" (rect 21 59 50 71)(font "Arial" ))
+		(text "rst_n" (rect 0 0 21 12)(font "Arial" ))
+		(text "rst_n" (rect 21 59 42 71)(font "Arial" ))
 		(line (pt 0 64)(pt 16 64)(line_width 1))
 	)
 	(port
-		(pt 200 32)
+		(pt 184 32)
 		(output)
 		(text "CounterX[7..0]" (rect 0 0 57 12)(font "Arial" ))
-		(text "CounterX[7..0]" (rect 122 27 179 39)(font "Arial" ))
-		(line (pt 200 32)(pt 184 32)(line_width 3))
+		(text "CounterX[7..0]" (rect 106 27 163 39)(font "Arial" ))
+		(line (pt 184 32)(pt 168 32)(line_width 3))
 	)
 	(port
-		(pt 200 48)
+		(pt 184 48)
 		(output)
 		(text "CounterY[7..0]" (rect 0 0 59 12)(font "Arial" ))
-		(text "CounterY[7..0]" (rect 120 43 179 55)(font "Arial" ))
-		(line (pt 200 48)(pt 184 48)(line_width 3))
+		(text "CounterY[7..0]" (rect 104 43 163 55)(font "Arial" ))
+		(line (pt 184 48)(pt 168 48)(line_width 3))
 	)
 	(port
-		(pt 200 64)
+		(pt 184 64)
 		(output)
 		(text "color[11..0]" (rect 0 0 41 12)(font "Arial" ))
-		(text "color[11..0]" (rect 138 59 179 71)(font "Arial" ))
-		(line (pt 200 64)(pt 184 64)(line_width 3))
+		(text "color[11..0]" (rect 122 59 163 71)(font "Arial" ))
+		(line (pt 184 64)(pt 168 64)(line_width 3))
 	)
 	(parameter
-		"n"
-		"25000"
+		"clear_screen"
+		"00"
 		""
-		(type "PARAMETER_SIGNED_DEC")	)
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"draw_line"
+		"01"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
 	(drawing
-		(rectangle (rect 16 16 184 96)(line_width 1))
+		(rectangle (rect 16 16 168 96)(line_width 1))
 	)
-	(annotation_block (parameter)(rect 216 -64 316 16))
+	(annotation_block (parameter)(rect 200 -64 300 16))
 )

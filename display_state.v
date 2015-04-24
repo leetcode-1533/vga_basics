@@ -1,108 +1,82 @@
-module display_state(CounterX,CounterY,color,clk,adc,man_in);
+module display_state(CounterX,CounterY,color,clk,clk_en,rst_n);
 
-parameter n = 25000;
 input clk;
-input [13:0] adc;
-input man_in;
+input clk_en,rst_n;
 
 output reg [7:0] CounterX,CounterY;
 output reg [11:0] color;
 
-wire [7:0] CounterX1,CounterY1,CounterX2,CounterY2;
-wire [11:0] color1, color2;
+// module vga_sin(CounterX,CounterY,color,clk,enable,reset,finished);
+// module clear(CounterX,CounterY,clk,reset,enable,finished,color);
+wire [7:0] CounterX_clear,CounterY_clear,CounterX_sin,CounterY_sin;
+wire [11:0] color_clear, color_sin;
+reg enable_clear,enable_sin,reset_clear,reset_sin;
+wire finished_clear,finished_sin;
 
 
-
-//reg clear_state,sin_state;
-
-integer k=0;
-reg [1:0] state;
-reg clear_lock,sin_lock;
-
-clear clear_entity(
-	.CounterX(CounterX1),
-	.CounterY(CounterY1),
-	.color(color1),
-	.clk(clk));
-	
-vga_sin sin_entity(
-	.CounterX(CounterX2),
-	.CounterY(CounterY2),
-	.color(color2),
+clear clear_module(
+	.CounterX(CounterX_clear),
+	.CounterY(CounterY_clear),
+	.color(color_clear),
 	.clk(clk),
-	.lock(sin_lock),
-	.adc(adc));
+	.enable(enable_clear),
+	.reset(reset_clear),
+	.finished(finished_clear));
+	
+vga_sin sin_module(
+	.CounterX(CounterX_sin),
+	.CounterY(CounterY_sin),
+	.color(color_sin),
+	.clk(clk),
+	.enable(enable_sin),
+	.reset(reset_sin),
+	.finished(finished_sin));
+
+parameter [1:0] clear_screen = 2'b00, draw_line = 2'b01;
+reg [1:0] state,next_state;
+
+initial begin
+	state = clear_screen;
+end
 
 always @ (posedge clk)
 begin
-	if(man_in == 0)
-	begin
-		k = k + 1;
-		if(k >= 500000) //50HZ
-			k = 0;
-		if(k <= 19199)//draw background
-			state <= 2'b00;
-		else if(k <= 19359)
-			state <= 2'b01;
-		else
-			state <= 2'b11;
-	end
+	if(rst_n == 1)
+		state <= clear_screen;
 	else
-		state <= 2'bzz;
+		state <= next_state;
 end
 
-always @ (state)
+always @ * // combinational circuit
 	case(state)
-		00:
+		clear_screen:
 		begin
-			clear_lock <= 1;
-			sin_lock <= 0;
-			CounterX = CounterX1;
-			CounterY = CounterY1;
-			color = color1;
-		end
-		01:
-		begin
-			clear_lock <= 0;
-			sin_lock <= 1;		
-			CounterX = CounterX2;
-			CounterY = CounterY2;
-			color = color2;		
-		end
-		default:
-		begin
-			clear_lock <= 0;
-			sin_lock <= 0;
-			CounterX = 8'bzzzz_zzzz;
-			CounterY = 8'bzzzz_zzzz;
-			color <= 12'bzzzz_zzzz_zzzz;
-		end
-	endcase
+			enable_clear = 1;
+			enable_sin = 0;
+			reset_sin = 0;
 
-//always @ (clk)
-//for(k=0;k < n; k = k+1)
-//begin
-//if (k <= 19199)
-//// clear first 
-//begin
-//	clear_state = 1;
-//	sin_state = 0;
-//	CounterX = CounterX1;
-//	CounterY = CounterY1;
-//	color = color1;
-//end
-//
-//// draw sin_wave
-//else if( k < 19359)
-//begin
-//	clear_state = 0;
-//	sin_state = 1;
-//	CounterX = CounterX1;
-//	CounterY = CounterY1;
-//	color = color1;
-//end
-//
-//// do nothing,
-//end
+			CounterX = CounterX_clear;
+			CounterY = CounterY_clear;
+			color = color_clear;
+			if(finished_clear == 0)
+				next_state = clear_screen;
+			else
+				next_state = draw_line;
+		end 
+		draw_line:
+		begin
+			enable_sin = 1;
+			enable_clear = 0;
+			reset_clear = 0;
+
+			CounterX = CounterX_sin;
+			CounterY = CounterY_sin;
+			color = color_sin;
+			if(finished_sin == 0)
+				next_state = draw_line;
+			else
+				next_state = clear_screen;
+		end 
+	endcase
 
 endmodule
