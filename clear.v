@@ -18,30 +18,33 @@ always @(posedge clk)
 begin
 	if(reset == 1)
 		CounterX <= 0;
-
+	else
+	begin
 	if(CounterXmaxed)
 	  CounterX <= 0;
 	else if(enable == 1)
 	  CounterX <= CounterX + 1;
+	end
 end
 
 always @ (posedge clk)
 begin
 	if(reset == 1)
 		CounterY <= 0;
-	if(CounterXmaxed == 1)
+	else
 	begin
-		if(CounterYmaxed)
-			begin
-			CounterY <= 0;
-			end
-		else 
-			begin
-			if(enable == 1)
+		if(CounterXmaxed == 1)
+		begin
+			if(CounterYmaxed)
+				CounterY <= 0;
+			else if(enable == 1)
 				CounterY <= CounterY + 1;
-			end
+		end
 	end
 end
+
+// output color;
+// endmodule
 
 
  output [11:0] color = {12{rambuffer}};

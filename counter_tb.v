@@ -28,7 +28,7 @@ initial begin
 	#10 reset = 1;//after 10 tickets
 	#10 reset = 0;//then after 10 tickets,reset is set 1 after reset == 1 is kept for 10 tickets
 	#10 enable = 1;
-	#200 enable = 0; // enable == 1 for 20000000 tickets
+	#200000 enable = 0; // enable == 1 for 20000000 tickets
 	#5 reset = 1;//try again
 	#200 enable = 1;
 	#25 $finish; 

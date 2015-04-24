@@ -1,4 +1,4 @@
-//module vga_sin(CounterX,color,clk,enable,reset,finished);
+// module vga_sin(CounterX,color,clk,enable,reset,finished);
  module vga_sin(CounterX,CounterY,color,clk,enable,reset,finished);
 //module vga_sin(CounterX,adc,CounterY,color,clk,enable,reset,finished);
 
@@ -18,23 +18,27 @@ always @(posedge clk)
 begin
 	if(reset == 1)
 		CounterX <= 0;
-
+	else
+	begin
 	if(CounterXmaxed)
 	  	CounterX <= 0;
 	else if(enable == 1)
 	  	CounterX <= CounterX + 1;
+	 end
 end
+
+// endmodule
 
 // output CounterY;
 // input [7:0] adc;
-
 // assign CounterY = adc;
 
- output [7:0] CounterY;
- sin_test sin_entity(
-  	.address(CounterX),
-  	.clock(clk),
-  	.wren(1'b0),
-  	.q(CounterY));
+
+output [7:0] CounterY;
+sin_test sin_entity(
+	.address(CounterX),
+	.clock(clk),
+	.wren(1'b0),
+	.q(CounterY));
 
 endmodule

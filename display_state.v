@@ -10,8 +10,8 @@ output reg [11:0] color;
 // module clear(CounterX,CounterY,clk,reset,enable,finished,color);
 wire [7:0] CounterX_clear,CounterY_clear,CounterX_sin,CounterY_sin;
 wire [11:0] color_clear, color_sin;
-reg enable_clear,enable_sin,reset_clear,reset_sin;
-wire finished_clear,finished_sin;
+reg enable_clear,enable_sin,reset_clear,reset_sin,enable_delay,reset_delay;
+wire finished_clear,finished_sin,finished_delay;
 
 
 clear clear_module(
@@ -31,8 +31,14 @@ vga_sin sin_module(
 	.enable(enable_sin),
 	.reset(reset_sin),
 	.finished(finished_sin));
+delay delay_module(
+	.clk(clk), 
+	.enable(enable_delay),
+	.reset(reset_delay), 
+	.finished(finished_delay));
+	defparam delay_module.cycle ='d1000833;
 
-parameter [1:0] clear_screen = 2'b00, draw_line = 2'b01;
+parameter [1:0] clear_screen = 2'b00, draw_line = 2'b01,do_nothing = 2'b10;
 reg [1:0] state,next_state;
 
 initial begin
@@ -51,9 +57,14 @@ always @ * // combinational circuit
 	case(state)
 		clear_screen:
 		begin
+			reset_clear = 0;
 			enable_clear = 1;
+
 			enable_sin = 0;
-			reset_sin = 0;
+			reset_sin = 1;
+
+			enable_delay = 0;
+			reset_delay = 1;
 
 			CounterX = CounterX_clear;
 			CounterY = CounterY_clear;
@@ -65,9 +76,12 @@ always @ * // combinational circuit
 		end 
 		draw_line:
 		begin
+			reset_sin = 0;
 			enable_sin = 1;
+
 			enable_clear = 0;
-			reset_clear = 0;
+			reset_clear = 1;
+			
 
 			CounterX = CounterX_sin;
 			CounterY = CounterY_sin;
@@ -75,7 +89,28 @@ always @ * // combinational circuit
 			if(finished_sin == 0)
 				next_state = draw_line;
 			else
+				next_state = do_nothing;
+		end
+		do_nothing:
+		begin
+			enable_delay = 1;
+			reset_delay = 0;
+
+			enable_clear = 0;
+			reset_clear = 1;
+
+			enable_sin = 0;
+			reset_sin = 1;
+
+			CounterX = 8'bzzzz_zzz;
+			CounterY = 8'bzzzz_zzz;
+			color = 12'bzzz_zzz_zzz_zzz;
+			if(finished_delay == 0)
+				next_state = do_nothing;
+			else	
 				next_state = clear_screen;
+
+
 		end 
 	endcase
 
