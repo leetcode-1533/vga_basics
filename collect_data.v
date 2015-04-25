@@ -26,7 +26,7 @@ fifo myfifo(.data(vga_data),
 reg fillfifo;
 
 always @(posedge clk_adc)
-if(~fillfifo) // if it is 0, wich means 
+if(~fillfifo) // if it is 0, wich means not allowed to be wirtten
   fillfifo <= wrempty; // start when empty // used in write clock domain: if empty : fillfifo will be 1,
 else
   fillfifo <= ~wrfull; // stop when full
