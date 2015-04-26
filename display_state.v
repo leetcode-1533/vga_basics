@@ -14,6 +14,10 @@ wire [11:0] color_clear, color_sin;
 reg enable_clear,enable_sin,reset_clear,reset_sin,enable_delay,reset_delay;
 wire finished_clear,finished_sin,finished_delay;
 
+
+trigger trigger_entity(
+	.clk_in(clk_adc),
+	.clk_out(clk_down));
 // ram_flash ram_entity(
 //   .data(data_flash_reg), .wraddress(wraddress), .wren(Acquiring), .wrclock(clk_flash),
 //   .q(ram_output), .rdaddress(rdaddress), .rden(rden), .rdclock(clk)
@@ -35,13 +39,11 @@ wire finished_fill;
 wire [7:0] CounterX_fill;
 wire clk_down;
 ramfill fill_module(
-	.clk_adc(clk_adc),
+	.clk_adc(clk_down),
 	.enable(enable_fill),
 	.reset(reset_fill),
 	.finished(finished_fill),
-	.CounterX(CounterX_fill),
-	.clk_down(clk_down));
-
+	.CounterX(CounterX_fill));
 
 clear clear_module(
 	.CounterX(CounterX_clear),
