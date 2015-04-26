@@ -197,6 +197,22 @@ applicable agreement for further details.
 	)
 )
 (pin
+	(output)
+	(rect 40 256 216 272)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "LEDG[7..6]" (rect 90 0 145 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
 	(bidir)
 	(rect 1096 544 1272 560)
 	(text "BIDIR" (rect 1 0 25 10)(font "Arial" (font_size 6)))
@@ -690,7 +706,7 @@ applicable agreement for further details.
 	(annotation_block (parameter)(rect 648 -256 840 112))
 )
 (symbol
-	(rect 720 368 960 480)
+	(rect 776 360 1016 472)
 	(text "dsp" (rect 5 0 22 12)(font "Arial" ))
 	(text "inst2" (rect 8 96 31 108)(font "Arial" ))
 	(port
@@ -799,6 +815,20 @@ applicable agreement for further details.
 		(text "color[11..0]" (rect 157 59 203 71)(font "Arial" ))
 		(line (pt 224 64)(pt 208 64)(line_width 3))
 	)
+	(port
+		(pt 224 80)
+		(output)
+		(text "state[1..0]" (rect 0 0 50 12)(font "Arial" ))
+		(text "state[1..0]" (rect 161 75 203 87)(font "Arial" ))
+		(line (pt 224 80)(pt 208 80)(line_width 3))
+	)
+	(port
+		(pt 224 96)
+		(output)
+		(text "clk_down" (rect 0 0 44 12)(font "Arial" ))
+		(text "clk_down" (rect 166 91 203 103)(font "Arial" ))
+		(line (pt 224 96)(pt 208 96))
+	)
 	(parameter
 		"clear_screen"
 		"00"
@@ -812,6 +842,11 @@ applicable agreement for further details.
 	(parameter
 		"do_nothing"
 		"10"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"fill"
+		"11"
 		""
 		(type "PARAMETER_UNSIGNED_BIN")	)
 	(drawing
@@ -860,11 +895,6 @@ applicable agreement for further details.
 	(pt 328 8)
 )
 (connector
-	(text "clk_62" (rect 698 416 729 428)(font "Arial" ))
-	(pt 720 432)
-	(pt 688 432)
-)
-(connector
 	(text "GPIO_0_TEMP[1]" (rect 1026 488 1112 500)(font "Arial" ))
 	(pt 1096 504)
 	(pt 1016 504)
@@ -907,18 +937,6 @@ applicable agreement for further details.
 	(pt 960 504)
 )
 (connector
-	(text "GPIO_0_TEMP[35..0]" (rect 960 384 1065 396)(font "Arial" ))
-	(pt 960 400)
-	(pt 1000 400)
-	(bus)
-)
-(connector
-	(text "GPIO_1_TEMP[35..0]" (rect 960 400 1065 412)(font "Arial" ))
-	(pt 960 416)
-	(pt 1000 416)
-	(bus)
-)
-(connector
 	(text "CLK25" (rect 330 128 363 140)(font "Arial" ))
 	(pt 320 144)
 	(pt 376 144)
@@ -959,12 +977,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "adc_data[13..0]" (rect 960 416 1036 428)(font "Arial" ))
-	(pt 1000 432)
-	(pt 960 432)
-	(bus)
-)
-(connector
 	(text "clk_62" (rect -240 224 -209 236)(font "Arial" ))
 	(pt -240 240)
 	(pt -216 240)
@@ -974,6 +986,39 @@ applicable agreement for further details.
 	(pt -240 224)
 	(pt -216 224)
 	(bus)
+)
+(connector
+	(pt 8 224)
+	(pt 40 224)
+	(bus)
+)
+(connector
+	(pt 40 224)
+	(pt 40 264)
+	(bus)
+)
+(connector
+	(text "GPIO_0_TEMP[35..0]" (rect 1016 376 1121 388)(font "Arial" ))
+	(pt 1016 392)
+	(pt 1056 392)
+	(bus)
+)
+(connector
+	(text "GPIO_1_TEMP[35..0]" (rect 1016 392 1121 404)(font "Arial" ))
+	(pt 1016 408)
+	(pt 1056 408)
+	(bus)
+)
+(connector
+	(text "adc_data[13..0]" (rect 1016 408 1092 420)(font "Arial" ))
+	(pt 1056 424)
+	(pt 1016 424)
+	(bus)
+)
+(connector
+	(text "clk_down" (rect 754 408 798 420)(font "Arial" ))
+	(pt 776 424)
+	(pt 744 424)
 )
 (connector
 	(pt 8 176)
@@ -1021,6 +1066,11 @@ applicable agreement for further details.
 	(pt 360 456)
 	(pt 408 456)
 	(bus)
+)
+(connector
+	(text "clk_down" (rect 8 224 52 236)(font "Arial" ))
+	(pt 8 240)
+	(pt 24 240)
 )
 (junction (pt 376 208))
 (junction (pt -24 -8))
