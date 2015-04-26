@@ -15,7 +15,7 @@ reg enable_clear,enable_sin,reset_clear,reset_sin,enable_delay,reset_delay;
 wire finished_clear,finished_sin,finished_delay;
 
 
-trigger trigger_entity(
+sample_clock htime_entity(
 	.clk_in(clk_adc),
 	.clk_out(clk_down));
 // ram_flash ram_entity(
