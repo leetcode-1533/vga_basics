@@ -9,7 +9,7 @@ output reg [11:0] color;
 
 // module vga_sin(CounterX,CounterY,color,clk,enable,reset,finished);
 // module clear(CounterX,CounterY,clk,reset,enable,finished,color);
-wire [7:0] CounterX_clear,CounterY_clear,CounterX_sin,CounterY_sin;
+wire [7:0] CounterX_clear,CounterY_clear,CounterX_sin;
 wire [11:0] color_clear, color_sin;
 reg enable_clear,enable_sin,reset_clear,reset_sin,enable_delay,reset_delay;
 wire finished_clear,finished_sin,finished_delay;
@@ -19,9 +19,10 @@ wire finished_clear,finished_sin,finished_delay;
 //   .q(ram_output), .rdaddress(rdaddress), .rden(rden), .rdclock(clk)
 // );
 wire [7:0] ram_output;
+wire [7:0] vga_data = (adc_data >> 7)-4;
 
 manual_ram ram_entity(
-	.data(adc_data), .wraddress(CounterX_fill),.wren(enable_fill),.wrclock(clk_adc), 
+	.data(vga_data), .wraddress(CounterX_fill),.wren(enable_fill),.wrclock(clk_adc), 
 	.q(ram_output), .rdaddress(CounterX_sin),.rden(enable_sin),.rdclock(clk));
 
 // module ramfill(clk_adc,enable,reset,finished,CounterX);
@@ -82,8 +83,8 @@ always @ * // combinational circuit
 	case(state)
 		clear_screen:
 		begin
-			reset_clear = 0;
 			enable_clear = 1;
+			reset_clear = 0;
 
 			enable_sin = 0;
 			reset_sin = 1;
@@ -91,7 +92,8 @@ always @ * // combinational circuit
 			enable_delay = 0;
 			reset_delay = 1;
 
-
+			enable_fill = 0;
+			reset_fill = 1;
 
 			CounterX = CounterX_clear;
 			CounterY = CounterY_clear;
@@ -99,19 +101,48 @@ always @ * // combinational circuit
 			if(finished_clear == 0)
 				next_state = clear_screen;
 			else
-				next_state = draw_line;
-		end 
-		draw_line:
+				next_state = fill;
+		end
+		fill:
 		begin
-			reset_sin = 0;
-			enable_sin = 1;
+			enable_fill = 1;
+			reset_fill = 0;		
 
 			enable_clear = 0;
 			reset_clear = 1;
-			
+
+			enable_sin = 0;
+			reset_sin = 1;
+
+			enable_delay = 0;
+			reset_delay = 1;
+
+			CounterX = 8'bzzzz_zzz;
+			CounterY = 8'bzzzz_zzz;
+			color = 12'bzzz_zzz_zzz_zzz;
+
+			if(finished_fill == 0)
+				next_state = fill;
+			else
+				next_state = draw_line;			
+
+		end
+		draw_line:
+		begin
+			enable_sin = 1;
+			reset_sin = 0;
+
+			enable_delay = 0;
+			reset_delay = 1;
+
+			enable_clear = 0;
+			reset_clear = 1;
+
+			enable_fill = 0;
+			reset_fill = 1;			
 
 			CounterX = CounterX_sin;
-			CounterY = CounterY_sin;
+			CounterY = ram_output;
 			color = color_sin;
 			if(finished_sin == 0)
 				next_state = draw_line;
@@ -128,6 +159,9 @@ always @ * // combinational circuit
 
 			enable_sin = 0;
 			reset_sin = 1;
+
+			enable_fill = 0;
+			reset_fill = 1;			
 
 			CounterX = 8'bzzzz_zzz;
 			CounterY = 8'bzzzz_zzz;
