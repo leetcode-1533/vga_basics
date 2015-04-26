@@ -1,5 +1,5 @@
 // module display_state(CounterX,CounterY,color,clk,clk_en,rst_n);
-module display_state(CounterX,CounterY,color,clk,clk_en,rst_n,adc_data,clk_adc,state);
+module display_state(CounterX,CounterY,color,clk,clk_en,rst_n,adc_data,clk_adc,state,clk_down);
 
 input clk;
 input clk_en,rst_n;//clk_en is not implemented
@@ -37,7 +37,7 @@ manual_ram ram_entity(
 reg enable_fill,reset_fill;
 wire finished_fill;
 wire [7:0] CounterX_fill;
-wire clk_down;
+output wire clk_down;
 
 wire write_enable;
 ramfill fill_module(

@@ -86,6 +86,13 @@ applicable agreement for further details.
 		(text "state[1..0]" (rect 166 75 203 87)(font "Arial" ))
 		(line (pt 224 80)(pt 208 80)(line_width 3))
 	)
+	(port
+		(pt 224 96)
+		(output)
+		(text "clk_down" (rect 0 0 36 12)(font "Arial" ))
+		(text "clk_down" (rect 167 91 203 103)(font "Arial" ))
+		(line (pt 224 96)(pt 208 96)(line_width 1))
+	)
 	(parameter
 		"clear_screen"
 		"00"
