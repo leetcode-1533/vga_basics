@@ -21,6 +21,9 @@ wire finished_clear,finished_sin,finished_delay;
 wire [7:0] ram_output;
 wire [7:0] vga_data = (adc_data >> 7)-4;
 
+input [13:0] adc_data;
+input clk_adc;
+
 manual_ram ram_entity(
 	.data(vga_data), .wraddress(CounterX_fill),.wren(enable_fill),.wrclock(clk_adc), 
 	.q(ram_output), .rdaddress(CounterX_sin),.rden(enable_sin),.rdclock(clk));
@@ -45,10 +48,6 @@ clear clear_module(
 	.finished(finished_clear));
 
 // module vga_sin(CounterX,CounterY,color,clk,enable,reset,finished,clk_adc,adc_data);
-
-
-input [13:0] adc_data;
-input clk_adc;
 vga_sin sin_module(
 	.CounterX(CounterX_sin),
 	.color(color_sin),
@@ -68,13 +67,13 @@ parameter [1:0] clear_screen = 2'b00, draw_line = 2'b01, do_nothing = 2'b10, fil
 reg [1:0] state,next_state;
 
 initial begin
-	state = clear_screen;
+	state = do_nothing;
 end
 
 always @ (posedge clk)
 begin
 	if(rst_n == 1)
-		state <= clear_screen;
+		state <= do_nothing;
 	else
 		state <= next_state;
 end
