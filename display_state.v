@@ -1,5 +1,5 @@
 // module display_state(CounterX,CounterY,color,clk,clk_en,rst_n);
-module display_state(CounterX,CounterY,color,clk,clk_en,rst_n,adc_data,clk_adc);
+module display_state(CounterX,CounterY,color,clk,clk_en,rst_n,adc_data,clk_adc,state);
 
 input clk;
 input clk_en,rst_n;//clk_en is not implemented
@@ -76,7 +76,9 @@ delay delay_module(
 //	defparam delay_module.cycle ='d10008;
 
 parameter [1:0] clear_screen = 2'b00, draw_line = 2'b01, do_nothing = 2'b10, fill = 2'b11;
-reg [1:0] state,next_state;
+
+output reg [1:0] state;
+reg [1:0] next_state;
 
 initial begin
 	state = do_nothing;
