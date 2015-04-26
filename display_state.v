@@ -42,7 +42,8 @@ ramfill fill_module(
 	.clk_adc(clk_down),
 	.enable(enable_fill),
 	.reset(reset_fill),
-	.finished(finished_fill),
+	.clk(clk),
+	.r_finished(finished_fill),
 	.CounterX(CounterX_fill));
 
 clear clear_module(
