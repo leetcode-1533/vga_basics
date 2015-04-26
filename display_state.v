@@ -1,5 +1,5 @@
 // module display_state(CounterX,CounterY,color,clk,clk_en,rst_n);
-module display_state(CounterX,CounterY,color,clk,clk_en,rst_n,adc_data,clk_adc,state,clk_down);
+module display_state(CounterX,CounterY,color,clk,clk_en,rst_n,adc_data,clk_adc,state,clk_down,vga_data);
 
 input clk;
 input clk_en,rst_n;//clk_en is not implemented
@@ -23,7 +23,7 @@ sample_clock htime_entity(
 //   .q(ram_output), .rdaddress(rdaddress), .rden(rden), .rdclock(clk)
 // );
 wire [7:0] ram_output;
-wire [7:0] vga_data = (adc_data >> 7)-4;
+input [7:0] vga_data;//= (adc_data >> 7)-4;
 
 input [13:0] adc_data;
 input clk_adc;

@@ -795,6 +795,13 @@ applicable agreement for further details.
 		(line (pt 0 96)(pt 16 96))
 	)
 	(port
+		(pt 0 112)
+		(input)
+		(text "vga_data[7..0]" (rect 0 0 71 12)(font "Arial" ))
+		(text "vga_data[7..0]" (rect 21 107 92 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 3))
+	)
+	(port
 		(pt 224 32)
 		(output)
 		(text "CounterX[7..0]" (rect 0 0 70 12)(font "Arial" ))
@@ -853,6 +860,28 @@ applicable agreement for further details.
 		(rectangle (rect 16 16 208 128))
 	)
 	(annotation_block (parameter)(rect -32 96 176 144))
+)
+(symbol
+	(rect -136 344 80 424)
+	(text "modisign" (rect 5 0 48 12)(font "Arial" ))
+	(text "inst1" (rect 8 64 31 76)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "adc_data[13..0]" (rect 0 0 76 12)(font "Arial" ))
+		(text "adc_data[13..0]" (rect 21 27 97 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 216 32)
+		(output)
+		(text "vga_data[7..0]" (rect 0 0 71 12)(font "Arial" ))
+		(text "vga_data[7..0]" (rect 135 27 195 39)(font "Arial" ))
+		(line (pt 216 32)(pt 200 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 200 64))
+	)
 )
 (connector
 	(pt 568 144)
@@ -1021,6 +1050,11 @@ applicable agreement for further details.
 	(pt 744 424)
 )
 (connector
+	(text "clk_down" (rect 8 224 52 236)(font "Arial" ))
+	(pt 8 240)
+	(pt 24 240)
+)
+(connector
 	(pt 8 176)
 	(pt 376 176)
 	(bus)
@@ -1068,9 +1102,22 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "clk_down" (rect 8 224 52 236)(font "Arial" ))
-	(pt 8 240)
-	(pt 24 240)
+	(text "adc_data[13..0]" (rect -184 360 -108 372)(font "Arial" ))
+	(pt -136 376)
+	(pt -184 376)
+	(bus)
+)
+(connector
+	(text "vga_data[7..0]" (rect 80 360 151 372)(font "Arial" ))
+	(pt 80 376)
+	(pt 112 376)
+	(bus)
+)
+(connector
+	(text "vga_data[7..0]" (rect -248 240 -177 252)(font "Arial" ))
+	(pt -216 256)
+	(pt -248 256)
+	(bus)
 )
 (junction (pt 376 208))
 (junction (pt -24 -8))
