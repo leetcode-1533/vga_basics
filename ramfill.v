@@ -8,12 +8,7 @@ wire w_finished;
 
 output reg r_finished;
 
-// build a 160 counter
-output reg [7:0] CounterX;
-
-wire CounterXmaxed = (CounterX==8'd159); // 159
-assign w_finished = (CounterXmaxed==1);
-
+// sync clocks
 reg prolong_finished = 0;
 always @(posedge w_finished)
 begin
@@ -23,10 +18,17 @@ end
 reg previous_signal;
 always @(posedge clk) // flip flop
 begin
+	previous_signal <= prolong_finished; 
 	r_finished <= previous_signal ^ prolong_finished;
-	previous_signal <= prolong_finished;
+	// or with its previous value.
 end
 
+
+// build a 160 counter
+output reg [7:0] CounterX;
+
+wire CounterXmaxed = (CounterX==8'd159); // 159
+assign w_finished = (CounterXmaxed==1);
 
 
 always @(posedge clk_adc)
