@@ -1,12 +1,13 @@
 // module ramfill(clk_adc,enable,reset,finfished,adc_data,vga_data);
-module ramfill(clk_adc,enable,reset,finished,adc_data,vga_data,CounterX);
+module ramfill(clk_adc,enable,reset,finished,adc_data,CounterX,clk_down);
 
 input clk_adc;
 input enable,reset;
 input [7:0] adc_data;
 
 output finished;
-output [7:0] vga_data;
+
+output clk_down = clk_adc;
 
 // build a 160 counter
 output reg [7:0] CounterX;

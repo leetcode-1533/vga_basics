@@ -25,7 +25,7 @@ input [13:0] adc_data;
 input clk_adc;
 
 manual_ram ram_entity(
-	.data(vga_data), .wraddress(CounterX_fill),.wren(enable_fill),.wrclock(clk_adc), 
+	.data(vga_data), .wraddress(CounterX_fill),.wren(enable_fill),.wrclock(clk_down), 
 	.q(ram_output), .rdaddress(CounterX_sin),.rden(enable_sin),.rdclock(clk));
 
 // module ramfill(clk_adc,enable,reset,finished,CounterX);
@@ -33,9 +33,14 @@ manual_ram ram_entity(
 reg enable_fill,reset_fill;
 wire finished_fill;
 wire [7:0] CounterX_fill;
-
-ramfill fill_entity(
-	.clk_adc(clk_adc),.enable(enable_fill),.reset(reset_fill),.finished(finished_fill),.CounterX(CounterX_fill));
+wire clk_down;
+ramfill fill_module(
+	.clk_adc(clk_adc),
+	.enable(enable_fill),
+	.reset(reset_fill),
+	.finished(finished_fill),
+	.CounterX(CounterX_fill),
+	.clk_down(clk_down));
 
 
 clear clear_module(
