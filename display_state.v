@@ -81,13 +81,13 @@ output reg [1:0] state;
 reg [1:0] next_state;
 
 initial begin
-	state = do_nothing;
+	state = clear_screen;
 end
 
 always @ (posedge clk)
 begin
 	if(rst_n == 1)
-		state <= do_nothing;
+		state <= clear_screen;
 	else
 		state <= next_state;
 end
