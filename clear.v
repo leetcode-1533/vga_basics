@@ -47,9 +47,9 @@ end
 // endmodule
 
 
- output [11:0] color = {12{rambuffer}};
- wire rambuffer;
- ram_background ram_entity(
+output [11:0] color = {12{rambuffer}};
+wire rambuffer;
+ram_background ram_entity(
  	.address(address),
  	.clock(clk),
  	.wren(1'b0),

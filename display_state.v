@@ -14,6 +14,25 @@ wire [11:0] color_clear, color_sin;
 reg enable_clear,enable_sin,reset_clear,reset_sin,enable_delay,reset_delay;
 wire finished_clear,finished_sin,finished_delay;
 
+// ram_flash ram_entity(
+//   .data(data_flash_reg), .wraddress(wraddress), .wren(Acquiring), .wrclock(clk_flash),
+//   .q(ram_output), .rdaddress(rdaddress), .rden(rden), .rdclock(clk)
+// );
+wire [7:0] ram_output;
+
+manual_ram ram_entity(
+	.data(adc_data), .wraddress(CounterX_fill),.wren(enable_fill),.wrclock(clk_adc), 
+	.q(ram_output), .rdaddress(CounterX_sin),.rden(enable_sin),.rdclock(clk));
+
+// module ramfill(clk_adc,enable,reset,finished,CounterX);
+
+reg enable_fill,reset_fill;
+wire finished_fill;
+wire [7:0] CounterX_fill;
+
+ramfill fill_entity(
+	.clk_adc(clk_adc),.enable(enable_fill),.reset(reset_fill),.finished(finished_fill),.CounterX(CounterX_fill));
+
 
 clear clear_module(
 	.CounterX(CounterX_clear),
@@ -25,18 +44,17 @@ clear clear_module(
 	.finished(finished_clear));
 
 // module vga_sin(CounterX,CounterY,color,clk,enable,reset,finished,clk_adc,adc_data);
+
+
 input [13:0] adc_data;
 input clk_adc;
 vga_sin sin_module(
 	.CounterX(CounterX_sin),
-	.CounterY(CounterY_sin),
 	.color(color_sin),
 	.clk(clk),
 	.enable(enable_sin),
 	.reset(reset_sin),
-	.finished(finished_sin),
-	.clk_adc(clk_adc),
-	.adc_data(adc_data));
+	.finished(finished_sin));
 
 delay delay_module(
 	.clk(clk), 
@@ -45,7 +63,7 @@ delay delay_module(
 	.finished(finished_delay));
 //	defparam delay_module.cycle ='d10008;
 
-parameter [1:0] clear_screen = 2'b00, draw_line = 2'b01,do_nothing = 2'b10;
+parameter [1:0] clear_screen = 2'b00, draw_line = 2'b01, do_nothing = 2'b10, fill = 2'b11;
 reg [1:0] state,next_state;
 
 initial begin
@@ -72,6 +90,8 @@ always @ * // combinational circuit
 
 			enable_delay = 0;
 			reset_delay = 1;
+
+
 
 			CounterX = CounterX_clear;
 			CounterY = CounterY_clear;
