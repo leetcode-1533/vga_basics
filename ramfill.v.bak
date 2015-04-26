@@ -1,28 +1,12 @@
 // module ramfill(clk_adc,enable,reset,finfished,adc_data,vga_data);
-module ramfill(clk_adc,enable,reset,r_finished,adc_data,CounterX,clk,write_enable);
+module ramfill(clk_adc,enable,reset,r_finished,adc_data,CounterX,clk);
 
 input clk_adc,clk;
 input enable,reset;
-input [13:0] adc_data;
+input [7:0] adc_data;
 wire w_finished;
-output reg write_enable;
 
 output reg r_finished;
-
-wire last_bit_data = adc_data[13];
-reg previous_adc_data;
-// wait until trigger happen
-always @ (posedge clk_adc)
-begin
-	previous_adc_data <= last_bit_data;
-	if(enable == 1)
-	begin
-		if((last_bit_data ^ previous_adc_data) == 1) // unchanged until enable returns to 0.
-			write_enable <= 1;
-	end
-	else
-		write_enable <= 0;
-end
 
 // sync clocks
 reg prolong_finished = 0;
@@ -55,7 +39,7 @@ begin
 	begin
 	if(CounterXmaxed)
 	  	CounterX <= 0;
-	else if(write_enable == 1)
+	else if(enable == 1)
 	  	CounterX <= CounterX + 1;
 	end
 end
