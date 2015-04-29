@@ -721,28 +721,6 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -184 360 32 440)
-	(text "modisign" (rect 5 0 48 12)(font "Arial" ))
-	(text "inst1" (rect 8 64 31 76)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "adc_data[13..0]" (rect 0 0 76 12)(font "Arial" ))
-		(text "adc_data[13..0]" (rect 21 27 97 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
-	)
-	(port
-		(pt 216 32)
-		(output)
-		(text "vga_data[7..0]" (rect 0 0 71 12)(font "Arial" ))
-		(text "vga_data[7..0]" (rect 135 27 206 39)(font "Arial" ))
-		(line (pt 216 32)(pt 200 32)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 200 64))
-	)
-)
-(symbol
 	(rect 328 -232 488 -120)
 	(text "sel_clk" (rect 5 0 39 12)(font "Arial" ))
 	(text "inst7" (rect 8 96 31 108)(font "Arial" ))
@@ -1099,6 +1077,35 @@ applicable agreement for further details.
 	)
 	(annotation_block (parameter)(rect -32 96 176 144))
 )
+(symbol
+	(rect -184 360 32 440)
+	(text "modisign" (rect 5 0 48 12)(font "Arial" ))
+	(text "inst1" (rect 8 64 31 76)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "adc_data[13..0]" (rect 0 0 76 12)(font "Arial" ))
+		(text "adc_data[13..0]" (rect 21 27 97 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "shift[1..0]" (rect 0 0 48 12)(font "Arial" ))
+		(text "shift[1..0]" (rect 21 43 69 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 216 32)
+		(output)
+		(text "vga_data[7..0]" (rect 0 0 71 12)(font "Arial" ))
+		(text "vga_data[7..0]" (rect 135 27 195 39)(font "Arial" ))
+		(line (pt 216 32)(pt 200 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 200 64))
+	)
+)
 (connector
 	(pt 568 144)
 	(pt 584 144)
@@ -1445,6 +1452,12 @@ applicable agreement for further details.
 	(text "SW[7..5]" (rect -248 288 -205 300)(font "Arial" ))
 	(pt -216 304)
 	(pt -248 304)
+	(bus)
+)
+(connector
+	(text "SW[4..3]" (rect -230 392 -187 404)(font "Arial" ))
+	(pt -184 408)
+	(pt -232 408)
 	(bus)
 )
 (junction (pt 376 208))
