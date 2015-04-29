@@ -48,9 +48,9 @@ end
 
 
 // build a 160 counter
-output reg [7:0] CounterX;
+output reg [10:0] CounterX;
 
-wire CounterXmaxed = (CounterX==8'd159); // 159
+wire CounterXmaxed = (CounterX=='d2047); // 2048 words for late down sampling
 wire w_finished;
 assign w_finished = (CounterXmaxed==1);
 
