@@ -42,7 +42,7 @@ begin
 	if(read_CounterX_Maxed)
 	  	read_CounterX <= 0;
 	else if(enable == 1)
-	  	read_CounterX <= read_CounterX + read_time_division + 1;
+	  	read_CounterX <= read_CounterX + read_time_division;
 	 end
 end
 

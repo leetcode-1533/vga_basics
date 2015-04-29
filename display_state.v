@@ -36,7 +36,7 @@ manual_ram ram_entity(
 
 reg enable_fill,reset_fill;
 wire finished_fill;
-wire [7:0] CounterX_fill;
+wire [10:0] CounterX_fill;
 output wire clk_down;
 
 wire write_enable;
@@ -68,7 +68,7 @@ vga_sin sin_module(
 	.clk(clk),
 	.enable(enable_sin),
 	.reset(reset_sin),
-	.read_CounterX(read_CounterX),
+	.read_CounterX(read_CounterX_sin),
 	.time_division(time_division),
 	.finished(finished_sin));
 
