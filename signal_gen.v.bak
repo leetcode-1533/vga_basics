@@ -4,7 +4,7 @@ input clk_dac;
 input enable,reset;
 output finished;
 
-output [13:0] value;
+output reg [13:0] value;
 
 // 4 ram block with different initial momeory.
 sin_test sin_entity(
@@ -39,7 +39,6 @@ begin
 			re_switch <= switch;
 		default:
 			re_switch <= 'b0001;
-		endcase
 end
 
 
