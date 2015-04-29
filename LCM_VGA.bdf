@@ -721,112 +721,6 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -216 144 8 288)
-	(text "display_state" (rect 5 0 71 12)(font "Arial" ))
-	(text "inst3" (rect 8 128 31 140)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "clk" (rect 0 0 14 12)(font "Arial" ))
-		(text "clk" (rect 21 27 35 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "clk_en" (rect 0 0 31 12)(font "Arial" ))
-		(text "clk_en" (rect 21 43 52 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "rst_n" (rect 0 0 24 12)(font "Arial" ))
-		(text "rst_n" (rect 21 59 45 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64))
-	)
-	(port
-		(pt 0 80)
-		(input)
-		(text "adc_data[13..0]" (rect 0 0 76 12)(font "Arial" ))
-		(text "adc_data[13..0]" (rect 21 75 97 87)(font "Arial" ))
-		(line (pt 0 80)(pt 16 80)(line_width 3))
-	)
-	(port
-		(pt 0 96)
-		(input)
-		(text "clk_adc" (rect 0 0 37 12)(font "Arial" ))
-		(text "clk_adc" (rect 21 91 58 103)(font "Arial" ))
-		(line (pt 0 96)(pt 16 96))
-	)
-	(port
-		(pt 0 112)
-		(input)
-		(text "vga_data[7..0]" (rect 0 0 71 12)(font "Arial" ))
-		(text "vga_data[7..0]" (rect 21 107 92 119)(font "Arial" ))
-		(line (pt 0 112)(pt 16 112)(line_width 3))
-	)
-	(port
-		(pt 224 32)
-		(output)
-		(text "CounterX[7..0]" (rect 0 0 70 12)(font "Arial" ))
-		(text "CounterX[7..0]" (rect 144 27 203 39)(font "Arial" ))
-		(line (pt 224 32)(pt 208 32)(line_width 3))
-	)
-	(port
-		(pt 224 48)
-		(output)
-		(text "CounterY[7..0]" (rect 0 0 73 12)(font "Arial" ))
-		(text "CounterY[7..0]" (rect 142 43 203 55)(font "Arial" ))
-		(line (pt 224 48)(pt 208 48)(line_width 3))
-	)
-	(port
-		(pt 224 64)
-		(output)
-		(text "color[11..0]" (rect 0 0 55 12)(font "Arial" ))
-		(text "color[11..0]" (rect 157 59 203 71)(font "Arial" ))
-		(line (pt 224 64)(pt 208 64)(line_width 3))
-	)
-	(port
-		(pt 224 80)
-		(output)
-		(text "state[1..0]" (rect 0 0 50 12)(font "Arial" ))
-		(text "state[1..0]" (rect 161 75 203 87)(font "Arial" ))
-		(line (pt 224 80)(pt 208 80)(line_width 3))
-	)
-	(port
-		(pt 224 96)
-		(output)
-		(text "clk_down" (rect 0 0 44 12)(font "Arial" ))
-		(text "clk_down" (rect 166 91 203 103)(font "Arial" ))
-		(line (pt 224 96)(pt 208 96))
-	)
-	(parameter
-		"clear_screen"
-		"00"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"draw_line"
-		"01"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"do_nothing"
-		"10"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"fill"
-		"11"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(drawing
-		(rectangle (rect 16 16 208 128))
-	)
-	(annotation_block (parameter)(rect -32 96 176 144))
-)
-(symbol
 	(rect -136 344 80 424)
 	(text "modisign" (rect 5 0 48 12)(font "Arial" ))
 	(text "inst1" (rect 8 64 31 76)(font "Arial" ))
@@ -1078,6 +972,119 @@ applicable agreement for further details.
 		(rectangle (rect 16 16 160 96))
 	)
 )
+(symbol
+	(rect -216 144 16 320)
+	(text "display_state" (rect 5 0 71 12)(font "Arial" ))
+	(text "inst3" (rect 8 160 31 172)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk" (rect 0 0 14 12)(font "Arial" ))
+		(text "clk" (rect 21 27 35 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "clk_en" (rect 0 0 31 12)(font "Arial" ))
+		(text "clk_en" (rect 21 43 52 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "rst_n" (rect 0 0 24 12)(font "Arial" ))
+		(text "rst_n" (rect 21 59 45 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "adc_data[13..0]" (rect 0 0 76 12)(font "Arial" ))
+		(text "adc_data[13..0]" (rect 21 75 97 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "clk_adc" (rect 0 0 37 12)(font "Arial" ))
+		(text "clk_adc" (rect 21 91 58 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "vga_data[7..0]" (rect 0 0 71 12)(font "Arial" ))
+		(text "vga_data[7..0]" (rect 21 107 92 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 3))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "time_division[1..0]" (rect 0 0 90 12)(font "Arial" ))
+		(text "time_division[1..0]" (rect 21 123 111 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 3))
+	)
+	(port
+		(pt 232 32)
+		(output)
+		(text "CounterX[7..0]" (rect 0 0 70 12)(font "Arial" ))
+		(text "CounterX[7..0]" (rect 152 27 211 39)(font "Arial" ))
+		(line (pt 232 32)(pt 216 32)(line_width 3))
+	)
+	(port
+		(pt 232 48)
+		(output)
+		(text "CounterY[7..0]" (rect 0 0 73 12)(font "Arial" ))
+		(text "CounterY[7..0]" (rect 150 43 211 55)(font "Arial" ))
+		(line (pt 232 48)(pt 216 48)(line_width 3))
+	)
+	(port
+		(pt 232 64)
+		(output)
+		(text "color[11..0]" (rect 0 0 55 12)(font "Arial" ))
+		(text "color[11..0]" (rect 165 59 211 71)(font "Arial" ))
+		(line (pt 232 64)(pt 216 64)(line_width 3))
+	)
+	(port
+		(pt 232 80)
+		(output)
+		(text "state[1..0]" (rect 0 0 50 12)(font "Arial" ))
+		(text "state[1..0]" (rect 169 75 211 87)(font "Arial" ))
+		(line (pt 232 80)(pt 216 80)(line_width 3))
+	)
+	(port
+		(pt 232 96)
+		(output)
+		(text "clk_down" (rect 0 0 44 12)(font "Arial" ))
+		(text "clk_down" (rect 174 91 211 103)(font "Arial" ))
+		(line (pt 232 96)(pt 216 96))
+	)
+	(parameter
+		"clear_screen"
+		"00"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"draw_line"
+		"01"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"do_nothing"
+		"10"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"fill"
+		"11"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(drawing
+		(rectangle (rect 16 16 216 160))
+	)
+	(annotation_block (parameter)(rect -32 96 176 144))
+)
 (connector
 	(pt 568 144)
 	(pt 584 144)
@@ -1186,16 +1193,6 @@ applicable agreement for further details.
 	(pt -216 208)
 )
 (connector
-	(pt 8 192)
-	(pt 376 192)
-	(bus)
-)
-(connector
-	(pt 8 208)
-	(pt 80 208)
-	(bus)
-)
-(connector
 	(text "clk_62" (rect -240 224 -209 236)(font "Arial" ))
 	(pt -240 240)
 	(pt -216 240)
@@ -1207,19 +1204,9 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 8 224)
-	(pt 40 224)
-	(bus)
-)
-(connector
 	(pt 40 224)
 	(pt 40 264)
 	(bus)
-)
-(connector
-	(text "clk_down" (rect 8 224 52 236)(font "Arial" ))
-	(pt 8 240)
-	(pt 24 240)
 )
 (connector
 	(text "adc_data[13..0]" (rect -184 360 -108 372)(font "Arial" ))
@@ -1256,16 +1243,6 @@ applicable agreement for further details.
 	(text "SW[14..13]" (rect 312 -168 367 -156)(font "Arial" ))
 	(pt 328 -152)
 	(pt 312 -152)
-	(bus)
-)
-(connector
-	(pt 8 176)
-	(pt 376 176)
-	(bus)
-)
-(connector
-	(pt 376 176)
-	(pt 384 176)
 	(bus)
 )
 (connector
@@ -1384,6 +1361,66 @@ applicable agreement for further details.
 	(pt 624 376)
 	(pt 608 376)
 )
+(connector
+	(pt 8 192)
+	(pt 16 192)
+	(bus)
+)
+(connector
+	(pt 16 192)
+	(pt 376 192)
+	(bus)
+)
+(connector
+	(pt 8 208)
+	(pt 16 208)
+	(bus)
+)
+(connector
+	(pt 16 208)
+	(pt 80 208)
+	(bus)
+)
+(connector
+	(pt 8 224)
+	(pt 16 224)
+	(bus)
+)
+(connector
+	(pt 16 224)
+	(pt 40 224)
+	(bus)
+)
+(connector
+	(pt 8 240)
+	(pt 16 240)
+)
+(connector
+	(text "clk_down" (rect 8 224 52 236)(font "Arial" ))
+	(pt 16 240)
+	(pt 24 240)
+)
+(connector
+	(pt 8 176)
+	(pt 16 176)
+	(bus)
+)
+(connector
+	(pt 16 176)
+	(pt 376 176)
+	(bus)
+)
+(connector
+	(pt 376 176)
+	(pt 384 176)
+	(bus)
+)
+(connector
+	(text "SW[12..11]" (rect -248 256 -193 268)(font "Arial" ))
+	(pt -216 272)
+	(pt -248 272)
+	(bus)
+)
 (junction (pt 376 208))
 (junction (pt -24 -8))
 (junction (pt 376 224))
@@ -1392,3 +1429,8 @@ applicable agreement for further details.
 (junction (pt -88 -200))
 (junction (pt 0 -200))
 (junction (pt 912 392))
+(junction (pt 16 192))
+(junction (pt 16 208))
+(junction (pt 16 224))
+(junction (pt 16 240))
+(junction (pt 16 176))

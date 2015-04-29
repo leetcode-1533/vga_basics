@@ -1,14 +1,17 @@
-module vga_sin(CounterX,color,clk,enable,reset,finished);
+module vga_sin(CounterX,color,clk,enable,reset,finished,read_CounterX,time_division);
 // module vga_sin(CounterX,CounterY,color,clk,enable,reset,finished);
 // module vga_sin(CounterX,CounterY,color,clk,enable,reset,finished,clk_adc,adc_data);
 
 
 input clk;
 input enable,reset;
+input [1:0] time_division;
+wire [2:0] read_time_division = time_division + 1; // to avoid 0, start from 1
 
 output finished;
 output reg [7:0] CounterX;
 output [11:0] color;
+
  
 assign color = 12'hF00; // color to be drawn
 
@@ -25,6 +28,21 @@ begin
 	  	CounterX <= 0;
 	else if(enable == 1)
 	  	CounterX <= CounterX + 1;
+	 end
+end
+
+output reg [10:0] read_CounterX;
+wire read_CounterX_Maxed = (read_CounterX >= 'd2047);
+always @(posedge clk)
+begin
+	if(reset == 1)
+		read_CounterX <= 0;
+	else
+	begin
+	if(read_CounterX_Maxed)
+	  	read_CounterX <= 0;
+	else if(enable == 1)
+	  	read_CounterX <= read_CounterX + read_time_division + 1;
 	 end
 end
 

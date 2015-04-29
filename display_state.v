@@ -1,5 +1,5 @@
 // module display_state(CounterX,CounterY,color,clk,clk_en,rst_n);
-module display_state(CounterX,CounterY,color,clk,clk_en,rst_n,adc_data,clk_adc,state,clk_down,vga_data);
+module display_state(CounterX,CounterY,color,clk,clk_en,rst_n,adc_data,clk_adc,state,clk_down,vga_data,time_division);
 
 input clk;
 input clk_en,rst_n;//clk_en is not implemented
@@ -30,7 +30,7 @@ input clk_adc;
 
 manual_ram ram_entity(
 	.data(vga_data), .wraddress(CounterX_fill),.wren(write_enable),.wrclock(clk_down), 
-	.q(ram_output), .rdaddress(CounterX_sin),.rden(enable_sin),.rdclock(clk));
+	.q(ram_output), .rdaddress(read_CounterX_sin),.rden(enable_sin),.rdclock(clk));
 
 // module ramfill(clk_adc,enable,reset,finished,CounterX);
 
@@ -60,12 +60,16 @@ clear clear_module(
 	.finished(finished_clear));
 
 // module vga_sin(CounterX,CounterY,color,clk,enable,reset,finished,clk_adc,adc_data);
+input [1:0] time_division;
+wire [10:0] read_CounterX_sin;
 vga_sin sin_module(
 	.CounterX(CounterX_sin),
 	.color(color_sin),
 	.clk(clk),
 	.enable(enable_sin),
 	.reset(reset_sin),
+	.read_CounterX(read_CounterX),
+	.time_division(time_division),
 	.finished(finished_sin));
 
 delay delay_module(
