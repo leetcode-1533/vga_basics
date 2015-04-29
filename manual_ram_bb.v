@@ -41,14 +41,14 @@ module manual_ram (
 	wren,
 	q);
 
-	input	[17:0]  data;
+	input	[7:0]  data;
 	input	[7:0]  rdaddress;
 	input	  rdclock;
 	input	  rden;
 	input	[7:0]  wraddress;
 	input	  wrclock;
 	input	  wren;
-	output	[17:0]  q;
+	output	[7:0]  q;
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_off
 `endif
@@ -94,7 +94,7 @@ endmodule
 // Retrieval info: PRIVATE: JTAG_ENABLED NUMERIC "0"
 // Retrieval info: PRIVATE: JTAG_ID STRING "NONE"
 // Retrieval info: PRIVATE: MAXIMUM_DEPTH NUMERIC "0"
-// Retrieval info: PRIVATE: MEMSIZE NUMERIC "2880"
+// Retrieval info: PRIVATE: MEMSIZE NUMERIC "1280"
 // Retrieval info: PRIVATE: MEM_IN_BITS NUMERIC "0"
 // Retrieval info: PRIVATE: MIFfilename STRING ""
 // Retrieval info: PRIVATE: OPERATION_MODE NUMERIC "2"
@@ -114,10 +114,10 @@ endmodule
 // Retrieval info: PRIVATE: USE_DIFF_CLKEN NUMERIC "0"
 // Retrieval info: PRIVATE: UseDPRAM NUMERIC "1"
 // Retrieval info: PRIVATE: VarWidth NUMERIC "0"
-// Retrieval info: PRIVATE: WIDTH_READ_A NUMERIC "18"
-// Retrieval info: PRIVATE: WIDTH_READ_B NUMERIC "18"
-// Retrieval info: PRIVATE: WIDTH_WRITE_A NUMERIC "18"
-// Retrieval info: PRIVATE: WIDTH_WRITE_B NUMERIC "18"
+// Retrieval info: PRIVATE: WIDTH_READ_A NUMERIC "8"
+// Retrieval info: PRIVATE: WIDTH_READ_B NUMERIC "8"
+// Retrieval info: PRIVATE: WIDTH_WRITE_A NUMERIC "8"
+// Retrieval info: PRIVATE: WIDTH_WRITE_B NUMERIC "8"
 // Retrieval info: PRIVATE: WRADDR_ACLR_B NUMERIC "0"
 // Retrieval info: PRIVATE: WRADDR_REG_B NUMERIC "0"
 // Retrieval info: PRIVATE: WRCTRL_ACLR_B NUMERIC "0"
@@ -140,11 +140,11 @@ endmodule
 // Retrieval info: CONSTANT: RDCONTROL_REG_B STRING "CLOCK1"
 // Retrieval info: CONSTANT: WIDTHAD_A NUMERIC "8"
 // Retrieval info: CONSTANT: WIDTHAD_B NUMERIC "8"
-// Retrieval info: CONSTANT: WIDTH_A NUMERIC "18"
-// Retrieval info: CONSTANT: WIDTH_B NUMERIC "18"
+// Retrieval info: CONSTANT: WIDTH_A NUMERIC "8"
+// Retrieval info: CONSTANT: WIDTH_B NUMERIC "8"
 // Retrieval info: CONSTANT: WIDTH_BYTEENA_A NUMERIC "1"
-// Retrieval info: USED_PORT: data 0 0 18 0 INPUT NODEFVAL "data[17..0]"
-// Retrieval info: USED_PORT: q 0 0 18 0 OUTPUT NODEFVAL "q[17..0]"
+// Retrieval info: USED_PORT: data 0 0 8 0 INPUT NODEFVAL "data[7..0]"
+// Retrieval info: USED_PORT: q 0 0 8 0 OUTPUT NODEFVAL "q[7..0]"
 // Retrieval info: USED_PORT: rdaddress 0 0 8 0 INPUT NODEFVAL "rdaddress[7..0]"
 // Retrieval info: USED_PORT: rdclock 0 0 0 0 INPUT NODEFVAL "rdclock"
 // Retrieval info: USED_PORT: rden 0 0 0 0 INPUT VCC "rden"
@@ -155,10 +155,10 @@ endmodule
 // Retrieval info: CONNECT: @address_b 0 0 8 0 rdaddress 0 0 8 0
 // Retrieval info: CONNECT: @clock0 0 0 0 0 wrclock 0 0 0 0
 // Retrieval info: CONNECT: @clock1 0 0 0 0 rdclock 0 0 0 0
-// Retrieval info: CONNECT: @data_a 0 0 18 0 data 0 0 18 0
+// Retrieval info: CONNECT: @data_a 0 0 8 0 data 0 0 8 0
 // Retrieval info: CONNECT: @rden_b 0 0 0 0 rden 0 0 0 0
 // Retrieval info: CONNECT: @wren_a 0 0 0 0 wren 0 0 0 0
-// Retrieval info: CONNECT: q 0 0 18 0 @q_b 0 0 18 0
+// Retrieval info: CONNECT: q 0 0 8 0 @q_b 0 0 8 0
 // Retrieval info: GEN_FILE: TYPE_NORMAL manual_ram.v TRUE
 // Retrieval info: GEN_FILE: TYPE_NORMAL manual_ram.inc FALSE
 // Retrieval info: GEN_FILE: TYPE_NORMAL manual_ram.cmp FALSE
