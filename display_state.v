@@ -1,5 +1,7 @@
 // module display_state(CounterX,CounterY,color,clk,clk_en,rst_n);
-module display_state(CounterX,CounterY,color,clk,clk_en,rst_n,adc_data,clk_adc,state,clk_down,vga_data,time_division);
+module display_state(CounterX,CounterY,color,clk,clk_en,rst_n,
+	adc_data,clk_adc,state,clk_down,vga_data,time_division,
+	move_up,move_down);
 
 input clk;
 input clk_en,rst_n;//clk_en is not implemented
@@ -14,6 +16,7 @@ wire [11:0] color_clear, color_sin;
 reg enable_clear,enable_sin,reset_clear,reset_sin,enable_delay,reset_delay;
 wire finished_clear,finished_sin,finished_delay;
 
+input [2:0] move_up,move_down;
 
 sample_clock htime_entity(
 	.clk_in(clk_adc),
@@ -159,7 +162,7 @@ always @ * // combinational circuit
 			reset_fill = 1;			
 
 			CounterX = CounterX_sin;
-			CounterY = ram_output;
+			CounterY = ram_output + move_down - move_up;
 			color = color_sin;
 			if(finished_sin == 0)
 				next_state = draw_line;
