@@ -1065,8 +1065,8 @@ applicable agreement for further details.
 	(port
 		(pt 0 48)
 		(input)
-		(text "shift[1..0]" (rect 0 0 48 12)(font "Arial" ))
-		(text "shift[1..0]" (rect 21 43 69 55)(font "Arial" ))
+		(text "shift[3..0]" (rect 0 0 48 12)(font "Arial" ))
+		(text "shift[3..0]" (rect 21 43 69 55)(font "Arial" ))
 		(line (pt 0 48)(pt 16 48)(line_width 3))
 	)
 	(port
@@ -1328,12 +1328,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "SW[4..3]" (rect -230 392 -187 404)(font "Arial" ))
-	(pt -184 408)
-	(pt -232 408)
-	(bus)
-)
-(connector
 	(pt 600 424)
 	(pt 600 408)
 	(bus)
@@ -1497,6 +1491,12 @@ applicable agreement for further details.
 (connector
 	(pt 952 336)
 	(pt 960 336)
+	(bus)
+)
+(connector
+	(text "SW[4..1]" (rect -230 392 -187 404)(font "Arial" ))
+	(pt -184 408)
+	(pt -232 408)
 	(bus)
 )
 (connector
