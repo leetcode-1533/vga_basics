@@ -4,7 +4,6 @@ input clk_dac;
 input enable,reset;
 output finished;
 
-output [13:0] value;
 
 // 4 ram block with different initial momeory.
 sin_test sin_entity(
@@ -13,34 +12,57 @@ sin_test sin_entity(
 	.wren(1'b0), 
 	.q(val1));
 
+sin_test1 sin_entity1(
+	.address(CounterX),
+	.clock(clk_dac),
+	.wren(1'b0), 
+	.q(val2));
+
+sin_test2 sin_entity2(
+	.address(CounterX),
+	.clock(clk_dac),
+	.wren(1'b0), 
+	.q(val3));
+
+sin_test3 sin_entity3(
+	.address(CounterX),
+	.clock(clk_dac),
+	.wren(1'b0), 
+	.q(val4));
 
 
-input [3:0] switch;
-reg [3:0] re_switch;
+
+
+input switch;
+reg [2:0] re_switch;
+reg [3:0] indicator;
+
 wire [13:0] val1,val2,val3,val4;
-
-assign value = val1 && re_switch[0] + val2 && re_switch[1] + val3 && re_switch[2] + val4 && re_switch[3];
+output reg [13:0] value;
 
 initial
 begin
-	re_switch <= 'b0001;
+	re_switch <= 'b00;
 end
 
-always @ (posedge switch) // only accecpt pulse, stay unchanged after touch
-begin
-	case(switch)
-		'b0001:
-			re_switch <= switch;
-		'b0010:
-			re_switch <= switch;
-		'b0100:
-			re_switch <= switch;
-		'b1000:
-			re_switch <= switch;
-		default:
-			re_switch <= 'b0001;
-		endcase
-end
+always @ (posedge switch)
+	re_switch <= re_switch + 1'b1;
+
+always @ *
+	case(re_switch)
+	'b00:
+	value = val1;
+	'b01:
+	value = val2;
+	'b10:
+	value = val3;
+	'b11:
+	value = val4;
+	endcase
+
+
+
+
 
 
 reg [9:0] CounterX;
