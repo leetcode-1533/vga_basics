@@ -34,8 +34,7 @@ sin_test3 sin_entity3(
 
 
 input switch;
-reg [2:0] re_switch;
-reg [3:0] indicator;
+reg [1:0] re_switch;
 
 wire [13:0] val1,val2,val3,val4;
 output reg [13:0] value;
