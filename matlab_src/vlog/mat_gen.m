@@ -1,3 +1,4 @@
+% code for generating initialing file for the background from matlab matrix
 function mat_gen(outfname)
 %miffilegen('test.mif') generate black and white image white strikes every
 % 10,

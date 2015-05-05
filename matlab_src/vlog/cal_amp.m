@@ -1,4 +1,5 @@
 function amp = cal_amp(shift,num)
+% code for calculating amplitude
 
 switch shift
     case '0000'

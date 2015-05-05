@@ -1,3 +1,4 @@
+% code for generating initialing for the generator
 function signal_generator(outfname)
 %105.3khz
 

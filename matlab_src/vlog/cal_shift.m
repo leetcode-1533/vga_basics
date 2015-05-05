@@ -1,3 +1,4 @@
+% code for calculating shift
 tk = [1];
 original = repmat(tk,1,13);
 display('the original center')

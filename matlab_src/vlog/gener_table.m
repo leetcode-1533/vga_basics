@@ -1,3 +1,4 @@
+% code for generating frequency table
 jumping = {'00','01','10','11'};
 sampling_rate = {'10','01','11'};
 

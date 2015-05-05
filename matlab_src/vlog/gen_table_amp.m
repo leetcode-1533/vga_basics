@@ -1,3 +1,4 @@
+% code for generate amplitude table
 shift = {'0000','0001','0010','0011','0100','1000','1100'};
 
 for i = 1:7

@@ -1,5 +1,5 @@
 function fw = cal_fre(sampling_rate,jumping,number_wave)
-
+% code for calculating frequency
 switch sampling_rate
     case '10'
         fs = 13.5*10^6;

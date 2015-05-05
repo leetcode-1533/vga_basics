@@ -1,3 +1,4 @@
+% code for generating initialzing file from image
 function imgscaled = miffilegen(infile, outfname, numrows, numcols)
 %miffilegen('photo.jpg','test.mif',120,160) generate black and white image.
 

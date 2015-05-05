@@ -1,3 +1,4 @@
+% code for calculating delay register
 x = 160;
 y = 120;
 f = 25*10^6;
